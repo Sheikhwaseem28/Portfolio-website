@@ -21,7 +21,7 @@ export const EXPERIENCES = [
     year: "Aug 2025 - Present",
     role: "Software Developer Intern",
     company: "Dutta Integrated Services",
-    description: `Developed customer order tracking and analytics feature that monitored month-wise activity patterns to identify inactive customers, improving customer retention by 10%. Built responsive quiz web application with randomized questions, real-time interaction, and instant scoring feedback. Implemented MERN stack solutions with data-driven insights that directly informed business strategy.`,
+    description: `Developed customer order tracking and analytics features to monitor month-wise activity patterns and identify inactive customers, improving customer retention by 10%. Contributed to the development and enhancement of Hospital Management System (HMS) software, working on patient workflows, data handling, and responsive dashboards. Additionally, collaborated on Laundry Management System development, implementing modules for order tracking, status management, and reporting. Delivered MERN stack solutions with data-driven insights that directly supported operational efficiency and business decision-making.`,
     technologies: ["React.js", "Node.js", "MongoDB", "Express.js", "Rest APIs", "Server-Socket"],
   },
   {
