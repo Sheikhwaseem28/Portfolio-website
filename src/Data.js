@@ -1,35 +1,42 @@
 import project1 from "./assets/projects/project2.jpg";
-import project2 from "./assets/projects/project3.jpg";
-import project3 from "./assets/projects/project1.jpg";
+import project2 from "./assets/projects/project3.png";
+import project3 from "./assets/projects/project1.png";
 import projectTxt from "./assets/projects/projectTax.jpg";
 
 // ============================================
 // HERO SECTION - First Impression
 // ============================================
-export const HERO_CONTENT = `Full-stack developer specializing in the MERN stack with a passion for building scalable, user-centric web applications. Proven track record in developing end-to-end solutions including social platforms, streaming services, and enterprise management systems. Expert in React.js for creating responsive, interactive UIs, with expanding expertise in Node.js backend development, RESTful API design, and database architecture. Committed to writing clean, maintainable code and delivering seamless user experiences that drive engagement and business growth.`;
+export const HERO_CONTENT = `Software Developer specializing in scalable, high-performance web applications with proven impact on business metrics. Successfully enhanced customer retention by 10% through data-driven analytics features at Dutta Integrated Services. Expert in React.js, Node.js, and modern web technologies with a track record of delivering production-ready solutions. Combines technical expertise with business acumen to create user-centric applications that drive measurable growth and engagement.`;
 
 // ============================================
 // ABOUT SECTION - Technical Expertise
 // ============================================
-export const ABOUT_TEXT = `Software engineer with strong competitive programming background and expertise in algorithmic problem-solving using C++. Proficient in Data Structures & Algorithms with 500+ problems solved across competitive platforms. Specialized in optimizing code performance, reducing time complexity, and implementing scalable solutions. Experienced in analyzing complex problems, designing efficient algorithms, and delivering production-ready code. Strong foundation in computational thinking, system design, and software engineering best practices.`;
+export const ABOUT_TEXT = `Software Developer with competitive programming excellence (AIR 343 in GeeksforGeeks Weekly Contest) and 500+ DSA problems solved. Strong foundation in C++ for algorithmic optimization and system design. Professional experience spans customer analytics systems, social platforms, and enterprise tools. Proven ability to reduce page load times by 30% through performance optimization. Combines technical rigor with practical business impact, delivering solutions that balance efficiency, scalability, and user experience.`;
 
 // ============================================
 // PROFESSIONAL EXPERIENCE
 // ============================================
 export const EXPERIENCES = [
   {
+    year: "Aug 2025 - Present",
+    role: "Software Developer Intern",
+    company: "Dutta Integrated Services",
+    description: `Developed customer order tracking and analytics feature that monitored month-wise activity patterns to identify inactive customers, improving customer retention by 10%. Built responsive quiz web application with randomized questions, real-time interaction, and instant scoring feedback. Implemented MERN stack solutions with data-driven insights that directly informed business strategy.`,
+    technologies: ["React.js", "Node.js", "MongoDB", "Express.js", "Rest APIs", "Server-Socket"],
+  },
+  {
     year: "Aug 2024",
     role: "Frontend Developer Intern",
     company: "LoveInProperty Pvt. Ltd.",
-    description: `Collaborated with cross-functional teams to deliver high-impact client projects using React.js and Tailwind CSS. Architected responsive, pixel-perfect user interfaces ensuring seamless experiences across all devices and browsers. Implemented modern frontend best practices including component reusability, state management, and performance optimization. Successfully delivered multiple production features ahead of schedule while maintaining high code quality standards.`,
-    technologies: ["React.js", "Tailwind CSS", "JavaScript ES6+", "Responsive Design", "Git"],
+    description: `Developed responsive web interfaces using React.js and Tailwind CSS with scalable architecture. Optimized images and loading techniques to reduce page load time by 30%, enhancing cross-device performance and user experience. Implemented modern frontend best practices including component reusability, state management, and performance optimization.`,
+    technologies: ["React.js", "Tailwind CSS", "JavaScript ES6+", "Responsive Design", "Git", "Performance"],
   },
   {
     year: "Jan 2024 - Mar 2024",
     role: "Industrial Training - Full Stack Development",
     company: "CodeQuotient Pvt. Ltd.",
-    description: `Completed intensive full-stack development training focused on modern web technologies. Mastered HTML5, CSS3, JavaScript ES6+, and Node.js to build dynamic, database-driven applications. Developed multiple projects demonstrating proficiency in both frontend and backend development. Gained hands-on experience with version control, deployment workflows, and agile development methodologies.`,
-    technologies: ["HTML5", "CSS3", "JavaScript", "Node.js", "Express.js", "REST APIs"],
+    description: `Gained proficiency in HTML, CSS, JavaScript, and React.js by developing responsive, interactive web applications with optimized performance and industry-standard coding practices. Developed quiz application with randomized questions and real-time interaction. Mastered full-stack development workflow and deployment methodologies.`,
+    technologies: ["HTML5", "CSS3", "JavaScript", "Node.js", "Express.js", "REST APIs", "React.js"],
   },
 ];
 
@@ -38,15 +45,17 @@ export const EXPERIENCES = [
 // ============================================
 export const SKILLS = [
   { name: "React.js", level: 90 },
-  { name: "JavaScript/ES6+", level: 88 },
+  { name: "JavaScript/ES6+", level: 90 },
   { name: "HTML5/CSS3", level: 92 },
-  { name: "Tailwind CSS", level: 87 },
-  { name: "Node.js", level: 85 },
+  { name: "Tailwind CSS", level: 90 },
+  { name: "Node.js", level: 90 },
   { name: "Express.js", level: 83 },
   { name: "MongoDB", level: 80 },
-  { name: "C++", level: 85 },
+  { name: "C++", level: 95 },
   { name: "Data Structures & Algorithms", level: 88 },
   { name: "Git/GitHub", level: 85 },
+  { name: "Python", level: 50 },
+  { name: "GCP", level: 65 },
 ];
 
 // ============================================
@@ -54,62 +63,63 @@ export const SKILLS = [
 // ============================================
 export const PROJECTS = [
   {
+    title: "Echocircle - Social Networking Platform",
+    image: project3,
+    description: `Full-stack social media application with secure JWT authentication and bcrypt encryption. Developed scalable text and image post management with personal profile sections and user dashboard. Implemented real-time post updates and engaging user interaction features with responsive design ensuring seamless experience across devices. Demonstrates proficiency in building secure, production-ready social applications.`,
+    technologies: ["React.js", "Express.js", "MongoDB", "Node.js", "JWT", "bcrypt", "Tailwind CSS"],
+    link: "https://github.com/Sheikhwaseem28/Echocircle-frontend",
+    liveLink: "https://echocircle-frontend.vercel.app/", // Add your actual live demo URL here
+    highlights: ["Secure Authentication", "Real-time Updates", "User Dashboard", "Scalable Architecture"],
+  },
+  {
+    title: "LinkZipp - URL Shortener Platform",
+    image: project2,
+    description: `Complete URL shortener with secure user authentication and session management. Integrated click tracking and analytics to monitor link performance and user engagement. Implemented JWT-based session security to protect user data and ensure safe authentication. Designed easy-to-use interface focused on usability and smooth navigation with responsive design.`,
+    technologies: ["React.js", "Node.js", "MongoDB", "Express.js", "JWT", "Analytics"],
+    link: "https://github.com/Sheikhwaseem28/Link_frontend",
+    liveLink: "https://link-frontend-vert.vercel.app/", // Add your actual live demo URL here
+    highlights: ["URL Analytics", "Secure Authentication", "Click Tracking", "User-Friendly UI"],
+  },
+  {
     title: "Municipal Finance & Tax Management System",
     image: projectTxt,
-    description: `Enterprise-grade tax management platform featuring real-time dashboard analytics, automated tax calculations, and comprehensive payment tracking. Built with Flutter for cross-platform mobile support and Node.js/MongoDB backend for scalable data management. Implemented secure user authentication, role-based access control, and intuitive UX for managing local, state, and national tax obligations. Successfully streamlined tax processes for efficient financial management.`,
+    description: `Enterprise-grade tax management platform featuring real-time dashboard analytics, automated tax calculations, and comprehensive payment tracking. Built with Flutter for cross-platform mobile support and Node.js/MongoDB backend for scalable data management. Implemented secure user authentication, role-based access control, and intuitive UX for managing local, state, and national tax obligations.`,
     technologies: ["Flutter", "Node.js", "MongoDB", "REST API", "Authentication"],
     link: "https://github.com/Sheikhwaseem28/Tax-Management",
-    liveLink: null, // Set to your deployed URL when ready
+    liveLink: null,
     highlights: ["Published Research Paper", "Real-time Analytics", "Enterprise Solution"],
   },
-  {
-    title: "SocialBook - Social Networking Platform",
-    image: project3,
-    description: `Full-stack social media application with real-time post updates, secure authentication system, and engaging user interaction features. Engineered with React.js for dynamic frontend, Express.js for robust API layer, and MongoDB for flexible data storage. Implemented JWT-based authentication, real-time notifications, and responsive design ensuring seamless experience across devices. Demonstrates proficiency in building scalable, production-ready applications.`,
-    technologies: ["React.js", "Express.js", "MongoDB", "Node.js", "JWT", "Tailwind CSS"],
-    link: "https://github.com/Sheikhwaseem28/SocialBook",
-    liveLink: null, // Set to your deployed URL when ready
-    highlights: ["Real-time Updates", "Secure Authentication", "Responsive Design"],
-  },
-  {
-    title: "MoonFlix - Movie Streaming Platform",
-    image: project2,
-    description: `Feature-rich movie discovery platform integrating external APIs for vast film database access. Built personalized user experiences with favorites management, review systems, and advanced search functionality. Developed secure authentication flow, optimized API calls for performance, and created intuitive UI for seamless content exploration. Enhanced skills in third-party API integration, state management, and user-centric design.`,
-    technologies: ["React.js", "Node.js", "MongoDB", "Express.js", "External APIs"],
-    link: "https://github.com/Sheikhwaseem28/MoonFlix",
-    liveLink: null, // Set to your deployed URL when ready
-    highlights: ["API Integration", "User Personalization", "Performance Optimization"],
-  },
 ];
+
 
 // ============================================
 // ACHIEVEMENTS & CERTIFICATIONS
 // ============================================
 export const ACHIEVEMENTS = [
   {
-    description: `Published research paper on "Municipal Finance and Tax Management System" demonstrating expertise in system design and real-world problem-solving.`,
-    icon: "research",
-    category: "Publication",
+    description: `AIR 343 in GeeksforGeeks Weekly Coding Contest - Demonstrated elite problem-solving skills and algorithmic thinking among thousands of participants.`,
+    icon: "trophy",
+    category: "Competitive Programming",
   },
   {
-    description: `Web Development Certification from Udemy (Hitesh Choudhary) - Comprehensive MERN stack training with hands-on project implementation.`,
+    description: `Qualified at college level for Smart India Hackathon 2024 - Recognized for innovative project submission and technical problem-solving capabilities.`,
+    icon: "award",
+    category: "Hackathon",
+  },
+  {
+    description: `Web Development Certification from Udemy - Comprehensive full-stack training covering modern web technologies and industry best practices.`,
     icon: "certificate",
     category: "Certification",
   },
   {
-    description: `AMCAT Certified Software Developer Trainee - Validated technical skills in software development, problem-solving, and programming fundamentals.`,
-    icon: "award",
-    category: "Assessment",
-  },
-  {
-    description: `AMCAT Certified in Hardware and Networking - Demonstrated understanding of computer systems, networking protocols, and IT infrastructure.`,
-    icon: "certificate",
-    category: "Technical Skills",
-  },
-  {
-    description: `500+ Data Structures and Algorithms problems solved across competitive programming platforms including LeetCode and GeeksforGeeks.`,
+    description: `500+ Data Structures and Algorithms problems solved across LeetCode and GeeksforGeeks - Strong foundation in computational problem-solving.`,
     icon: "trophy",
-    category: "Competitive Programming",
+    category: "Technical Excellence",
+  },
+  {
+    description: `Improved customer retention by 10% through analytics feature at Dutta Integrated Services - Demonstrated business impact through technical solutions.`,
+    icon: "chart",
+    category: "Business Impact",
   },
 ];
 
@@ -133,7 +143,7 @@ export const CONTACT = {
 export const STATS = {
   experience: "1+ Years",
   projects: "15+",
-  problemsSolved: "500+",
+  problemsSolved: "350+",
   technologies: "10+",
   certifications: 4,
 };

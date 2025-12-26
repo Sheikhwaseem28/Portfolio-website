@@ -35,7 +35,7 @@ const Services = () => {
         className="my-20 text-center text-4xl"
       >
         <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-cyan-400">
-          Services
+          Tech Stack
         </span>
       </motion.h1>
 

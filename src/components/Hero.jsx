@@ -2,6 +2,7 @@ import { HERO_CONTENT } from "../Data.js";
 import { motion } from "framer-motion";
 import { FaDownload, FaCode, FaLaptopCode, FaDatabase, FaReact } from "react-icons/fa";
 import { SiJavascript, SiNodedotjs, SiMongodb, SiTailwindcss } from "react-icons/si";
+import resumePDF from "./Sheikh_Waseem_Resume.pdf"; // Import the PDF from root src folder
 
 const container = (delay) => ({
   hidden: { x: -100, opacity: 0 },
@@ -13,6 +14,18 @@ const container = (delay) => ({
 });
 
 const Hero = () => {
+  
+  // Function to handle resume download
+  const handleResumeDownload = () => {
+    // Create a link element
+    const link = document.createElement('a');
+    link.href = resumePDF;
+    link.download = 'Sheikh_Waseem_Resume.pdf'; // Suggested filename
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   return (
     <div className="border-b border-neutral-900 pb-4 lg:mb-35">
       <div className="flex flex-wrap">
@@ -49,12 +62,13 @@ const Hero = () => {
               className="flex gap-4 mt-4"
             >
               <motion.button
+                onClick={handleResumeDownload}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="bg-gradient-to-r from-purple-500 to-cyan-500 text-white font-semibold px-6 py-3 rounded-lg flex items-center gap-2 hover:shadow-lg hover:shadow-purple-500/50 transition-all"
               >
                 <FaDownload />
-                Download CV
+                Resume
               </motion.button>
               <motion.a
                 href="#contact"

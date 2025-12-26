@@ -49,6 +49,53 @@ export const Contact = () => {
     },
   ];
 
+  // Function to handle email click
+  const handleEmailClick = () => {
+    const email = CONTACT.email;
+    if (!email) {
+      console.error("Email address is not defined in CONTACT data");
+      return;
+    }
+    
+    // Try multiple approaches to ensure email works
+    try {
+      // Approach 1: Direct mailto link
+      window.location.href = `mailto:${email}`;
+      
+      // Fallback: Open in new tab after a delay
+      setTimeout(() => {
+        const mailWindow = window.open(`mailto:${email}`);
+        if (!mailWindow) {
+          // If popup blocked, show alert
+          alert(`Please send an email to: ${email}`);
+        }
+      }, 1000);
+      
+    } catch (error) {
+      console.error("Error opening email client:", error);
+      // Last resort: Copy to clipboard and show message
+      navigator.clipboard.writeText(email)
+        .then(() => {
+          alert(`Email address copied to clipboard: ${email}\nPlease paste it in your email client.`);
+        })
+        .catch(() => {
+          alert(`Please send an email to: ${email}`);
+        });
+    }
+  };
+
+  // Function to handle contact card clicks
+  const handleContactClick = (link) => {
+    if (link && link.startsWith('mailto:')) {
+      // Use the same robust email handler
+      handleEmailClick();
+    } else if (link) {
+      // For phone links, just use standard behavior
+      return true; // Let the default anchor behavior happen
+    }
+    return false; // Prevent default for email
+  };
+
   return (
     <div id="contact" className="border-b border-neutral-900 pb-20">
       <motion.h1
@@ -117,8 +164,14 @@ export const Contact = () => {
                 {info.link ? (
                   <motion.a
                     href={info.link}
+                    onClick={(e) => {
+                      if (info.link && info.link.startsWith('mailto:')) {
+                        e.preventDefault();
+                        handleEmailClick();
+                      }
+                    }}
                     whileHover={{ scale: 1.05 }}
-                    className={`text-sm text-neutral-400 hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r ${info.color} transition-all break-words`}
+                    className={`text-sm text-neutral-400 hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r ${info.color} transition-all break-words cursor-pointer`}
                   >
                     {info.value}
                   </motion.a>
@@ -222,15 +275,15 @@ export const Contact = () => {
           <p className="text-neutral-400 text-lg mb-6 max-w-2xl mx-auto">
             I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.
           </p>
-          <motion.a
-            href={`mailto:${CONTACT.email}`}
+          <motion.button
+            onClick={handleEmailClick}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="inline-flex items-center gap-3 bg-gradient-to-r from-purple-500 to-cyan-500 text-white font-semibold px-8 py-4 rounded-full hover:shadow-lg hover:shadow-purple-500/50 transition-all"
+            className="inline-flex items-center gap-3 bg-gradient-to-r from-purple-500 to-cyan-500 text-white font-semibold px-8 py-4 rounded-full hover:shadow-lg hover:shadow-purple-500/50 transition-all cursor-pointer"
           >
             <FaEnvelope className="text-xl" />
             <span>Send me an Email</span>
-          </motion.a>
+          </motion.button>
         </motion.div>
       </div>
     </div>

@@ -369,7 +369,7 @@ const Skills = () => {
             {[
               { label: "Technologies", value: "10+", color: "from-purple-500 to-pink-500" },
               { label: "Projects", value: "15+", color: "from-cyan-500 to-blue-500" },
-              { label: "DSA Problems Solved", value: "500+", color: "from-orange-500 to-red-500" },
+              { label: "DSA Problems Solved", value: "350+", color: "from-orange-500 to-red-500" },
             ].map((stat, index) => (
               <motion.div
                 key={index}
