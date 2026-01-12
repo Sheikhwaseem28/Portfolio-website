@@ -2,6 +2,7 @@ import project1 from "./assets/projects/project2.jpg";
 import project2 from "./assets/projects/project3.png";
 import project3 from "./assets/projects/project1.png";
 import projectTxt from "./assets/projects/projectTax.jpg";
+import skilscan from "./assets/projects/Skillscan.png"
 
 // ============================================
 // HERO SECTION - First Impression
@@ -11,7 +12,7 @@ export const HERO_CONTENT = `Software Developer specializing in scalable, high-p
 // ============================================
 // ABOUT SECTION - Technical Expertise
 // ============================================
-export const ABOUT_TEXT = `Software Developer with competitive programming excellence (AIR 343 in GeeksforGeeks Weekly Contest) and 500+ DSA problems solved. Strong foundation in C++ for algorithmic optimization and system design. Professional experience spans customer analytics systems, social platforms, and enterprise tools. Proven ability to reduce page load times by 30% through performance optimization. Combines technical rigor with practical business impact, delivering solutions that balance efficiency, scalability, and user experience.`;
+export const ABOUT_TEXT = `Software Developer with competitive programming excellence (AIR 343 in GeeksforGeeks Weekly Contest) and 350+ DSA problems solved. Strong foundation in C++ for algorithmic optimization and system design. Professional experience spans customer analytics systems, social platforms, and enterprise tools. Proven ability to reduce page load times by 30% through performance optimization. Combines technical rigor with practical business impact, delivering solutions that balance efficiency, scalability, and user experience.`;
 
 // ============================================
 // PROFESSIONAL EXPERIENCE
@@ -21,14 +22,17 @@ export const EXPERIENCES = [
     year: "Aug 2025 - Present",
     role: "Software Developer Intern",
     company: "Dutta Integrated Services",
-    description: `Developed customer order tracking and analytics features to monitor month-wise activity patterns and identify inactive customers, improving customer retention by 10%. Contributed to the development and enhancement of Hospital Management System (HMS) software, working on patient workflows, data handling, and responsive dashboards. Additionally, collaborated on Laundry Management System development, implementing modules for order tracking, status management, and reporting. Delivered MERN stack solutions with data-driven insights that directly supported operational efficiency and business decision-making.`,
+    description: `• Solved a complex customer engagement problem by building a month-wise order tracking and analytics system using the MERN stack, identifying inactive customers through behavioral patterns and enabling data-driven retention strategies that improved customer retention by 10%.
+
+• Solved the challenge of fragmented IPD patient record management by developing a centralized IPD patienttimeline system for an HMS portal, enabling seamless chronological tracking of medications,diagnostic tests, and visit schedules, and significantly improving clinical visibility and operational efficiency forhealthcare teams.`,
     technologies: ["React.js", "Node.js", "MongoDB", "Express.js", "Rest APIs", "Server-Socket"],
   },
   {
     year: "Aug 2024",
     role: "Frontend Developer Intern",
     company: "LoveInProperty Pvt. Ltd.",
-    description: `Developed responsive web interfaces using React.js and Tailwind CSS with scalable architecture. Optimized images and loading techniques to reduce page load time by 30%, enhancing cross-device performance and user experience. Implemented modern frontend best practices including component reusability, state management, and performance optimization.`,
+    description: `• Built scalable and responsive web interfaces using React.js and Tailwind CSS, optimizing performance, consistency, and usability across multiple devices and browsers through a modular and maintainable frontend architecture.
+• Optimized image assets and implemented efficient loading techniques, reducing page load time by 30% and significantly improving performance and user experience across devices.`,
     technologies: ["React.js", "Tailwind CSS", "JavaScript ES6+", "Responsive Design", "Git", "Performance"],
   },
   {
@@ -63,12 +67,39 @@ export const SKILLS = [
 // ============================================
 export const PROJECTS = [
   {
+    title: "SkillScan - An AI-Powered Resume Analyzer",
+    image: skilscan,
+    description: `• Created an AI-powered resume analysis platform to address the common challenge faced by students and jobseekers where resumes fail to match real job requirements, delivering clear insights on skill gaps and role alignment.
+• Designed secure Google OAuth and email-based authentication with per-user request limits, and built scalable Node.js APIs to ensure controlled usage, data protection, and reliable system performance.`,
+    technologies: [
+      "React.js",
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+      "JWT",
+      "Google OAuth",
+      "Gemini",
+      "Tailwind CSS"
+    ],
+    link: "https://github.com/Sheikhwaseem28/resume-analyzer-frontend",
+    liveLink: "https://skillsscan-ai.vercel.app/",
+    highlights: [
+      "AI Resume Analysis",
+      "Google OAuth Authentication",
+      "Rate-Limited API Requests",
+      "ATS Optimization Insights",
+      "Production-Ready Architecture"
+    ],
+  },
+  {
     title: "Echocircle - Social Networking Platform",
     image: project3,
-    description: `Full-stack social media application with secure JWT authentication and bcrypt encryption. Developed scalable text and image post management with personal profile sections and user dashboard. Implemented real-time post updates and engaging user interaction features with responsive design ensuring seamless experience across devices. Demonstrates proficiency in building secure, production-ready social applications.`,
+    description: `• Developed a secure social media platform using JWT authentication and bcrypt encryption, enabling safe creation, sharing, and management of text and image-based user content.
+• Built personal user profiles and a content management dashboard to streamline user and post handling,
+ensuring smooth performance and responsive behavior across all devices`,
     technologies: ["React.js", "Express.js", "MongoDB", "Node.js", "JWT", "bcrypt", "Tailwind CSS"],
     link: "https://github.com/Sheikhwaseem28/Echocircle-frontend",
-    liveLink: "https://echocircle-frontend.vercel.app/", // Add your actual live demo URL here
+    liveLink: "https://echocircle-frontend.vercel.app/",
     highlights: ["Secure Authentication", "Real-time Updates", "User Dashboard", "Scalable Architecture"],
   },
   {
@@ -77,20 +108,10 @@ export const PROJECTS = [
     description: `Complete URL shortener with secure user authentication and session management. Integrated click tracking and analytics to monitor link performance and user engagement. Implemented JWT-based session security to protect user data and ensure safe authentication. Designed easy-to-use interface focused on usability and smooth navigation with responsive design.`,
     technologies: ["React.js", "Node.js", "MongoDB", "Express.js", "JWT", "Analytics"],
     link: "https://github.com/Sheikhwaseem28/Link_frontend",
-    liveLink: "https://link-frontend-vert.vercel.app/", // Add your actual live demo URL here
+    liveLink: "https://link-frontend-vert.vercel.app/",
     highlights: ["URL Analytics", "Secure Authentication", "Click Tracking", "User-Friendly UI"],
   },
-  {
-    title: "Municipal Finance & Tax Management System",
-    image: projectTxt,
-    description: `Enterprise-grade tax management platform featuring real-time dashboard analytics, automated tax calculations, and comprehensive payment tracking. Built with Flutter for cross-platform mobile support and Node.js/MongoDB backend for scalable data management. Implemented secure user authentication, role-based access control, and intuitive UX for managing local, state, and national tax obligations.`,
-    technologies: ["Flutter", "Node.js", "MongoDB", "REST API", "Authentication"],
-    link: "https://github.com/Sheikhwaseem28/Tax-Management",
-    liveLink: null,
-    highlights: ["Published Research Paper", "Real-time Analytics", "Enterprise Solution"],
-  },
 ];
-
 
 // ============================================
 // ACHIEVEMENTS & CERTIFICATIONS
@@ -112,7 +133,7 @@ export const ACHIEVEMENTS = [
     category: "Certification",
   },
   {
-    description: `500+ Data Structures and Algorithms problems solved across LeetCode and GeeksforGeeks - Strong foundation in computational problem-solving.`,
+    description: `350+ Data Structures and Algorithms problems solved across LeetCode and GeeksforGeeks - Strong foundation in computational problem-solving.`,
     icon: "trophy",
     category: "Technical Excellence",
   },
@@ -141,7 +162,7 @@ export const CONTACT = {
 // PROFESSIONAL SUMMARY - Quick Stats
 // ============================================
 export const STATS = {
-  experience: "1+ Years",
+  experience: "Fresher",
   projects: "15+",
   problemsSolved: "350+",
   technologies: "10+",

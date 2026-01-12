@@ -122,10 +122,12 @@ export const Experience = () => {
                       </div>
                     </div>
 
-                    {/* Description */}
-                    <p className="text-neutral-400 leading-relaxed mb-6">
-                      {experience.description}
-                    </p>
+                    {/* Description - Preserving exact formatting */}
+                    <div className="mb-6">
+                      <div className="whitespace-pre-line text-neutral-300 leading-relaxed">
+                        {experience.description}
+                      </div>
+                    </div>
 
                     {/* Technologies */}
                     <div className="flex flex-wrap gap-2">

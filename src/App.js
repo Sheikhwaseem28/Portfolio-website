@@ -56,11 +56,6 @@ function App() {
           <Experience />
         </section>
 
-        {/* Services Section */}
-        <section id="services">
-          <Services />
-        </section>
-
         {/* Projects Section */}
         <section id="projects">
           <Projects />
