@@ -82,7 +82,7 @@ export const PROJECTS = [
       "Tailwind CSS"
     ],
     link: "https://github.com/Sheikhwaseem28/resume-analyzer-frontend",
-    liveLink: "https://skillsscan-ai.vercel.app/",
+    liveLink: "https://resume-analyzer-frontend-sand.vercel.app/",
     highlights: [
       "AI Resume Analysis",
       "Google OAuth Authentication",
@@ -99,7 +99,6 @@ export const PROJECTS = [
 ensuring smooth performance and responsive behavior across all devices`,
     technologies: ["React.js", "Express.js", "MongoDB", "Node.js", "JWT", "bcrypt", "Tailwind CSS"],
     link: "https://github.com/Sheikhwaseem28/Echocircle-frontend",
-    liveLink: "https://echocircle-frontend.vercel.app/",
     highlights: ["Secure Authentication", "Real-time Updates", "User Dashboard", "Scalable Architecture"],
   },
   {
@@ -108,7 +107,7 @@ ensuring smooth performance and responsive behavior across all devices`,
     description: `Complete URL shortener with secure user authentication and session management. Integrated click tracking and analytics to monitor link performance and user engagement. Implemented JWT-based session security to protect user data and ensure safe authentication. Designed easy-to-use interface focused on usability and smooth navigation with responsive design.`,
     technologies: ["React.js", "Node.js", "MongoDB", "Express.js", "JWT", "Analytics"],
     link: "https://github.com/Sheikhwaseem28/Link_frontend",
-    liveLink: "https://link-frontend-vert.vercel.app/",
+    liveLink: "https://link-frontend-omega.vercel.app/",
     highlights: ["URL Analytics", "Secure Authentication", "Click Tracking", "User-Friendly UI"],
   },
 ];
