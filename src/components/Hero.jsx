@@ -1,6 +1,6 @@
 import { HERO_CONTENT } from "../Data.js";
 import { motion } from "framer-motion";
-import { FaDownload, FaCode, FaLaptopCode, FaDatabase, FaReact } from "react-icons/fa";
+import { FaDownload, FaCode, FaLaptopCode, FaReact } from "react-icons/fa";
 import { SiJavascript, SiNodedotjs, SiMongodb, SiTailwindcss } from "react-icons/si";
 import resumePDF from "./Sheikh_Waseem_Resume.pdf"; // Import the PDF from root src folder
 
@@ -14,7 +14,7 @@ const container = (delay) => ({
 });
 
 const Hero = () => {
-  
+
   // Function to handle resume download
   const handleResumeDownload = () => {
     // Create a link element

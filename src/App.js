@@ -1,4 +1,4 @@
-import { lazy, Suspense } from "react";
+import { Suspense } from "react";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import About from "./components/About";
@@ -8,7 +8,7 @@ import { Contact } from "./components/Contact";
 import { Achievements } from "./components/Achievements";
 import ParticlesBackground from "./components/ParticlesBackground";
 import Skills from "./components/Skills";
-import Services from "./components/Services";
+
 import ContactForm from "./components/ContactForm";
 import ScrollProgress from "./components/ScrollProgress";
 import Footer from "./components/Footer";

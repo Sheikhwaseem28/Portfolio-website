@@ -56,12 +56,12 @@ export const Contact = () => {
       console.error("Email address is not defined in CONTACT data");
       return;
     }
-    
+
     // Try multiple approaches to ensure email works
     try {
       // Approach 1: Direct mailto link
       window.location.href = `mailto:${email}`;
-      
+
       // Fallback: Open in new tab after a delay
       setTimeout(() => {
         const mailWindow = window.open(`mailto:${email}`);
@@ -70,7 +70,7 @@ export const Contact = () => {
           alert(`Please send an email to: ${email}`);
         }
       }, 1000);
-      
+
     } catch (error) {
       console.error("Error opening email client:", error);
       // Last resort: Copy to clipboard and show message
@@ -84,17 +84,7 @@ export const Contact = () => {
     }
   };
 
-  // Function to handle contact card clicks
-  const handleContactClick = (link) => {
-    if (link && link.startsWith('mailto:')) {
-      // Use the same robust email handler
-      handleEmailClick();
-    } else if (link) {
-      // For phone links, just use standard behavior
-      return true; // Let the default anchor behavior happen
-    }
-    return false; // Prevent default for email
-  };
+
 
   return (
     <div id="contact" className="border-b border-neutral-900 pb-20">

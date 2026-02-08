@@ -4,19 +4,19 @@ import { FaLinkedin, FaGithub, FaBars, FaTimes } from "react-icons/fa";
 import { SiGeeksforgeeks } from "react-icons/si";
 import { motion, AnimatePresence } from "framer-motion";
 
+const navItems = [
+  { id: "home", label: "Home" },
+  { id: "about", label: "About" },
+  { id: "skills", label: "Skills" },
+  { id: "experience", label: "Experience" },
+  { id: "projects", label: "Projects" },
+  { id: "achievements", label: "Achievements" },
+  { id: "contact", label: "Contact" },
+];
+
 const Navbar = () => {
   const [activeSection, setActiveSection] = useState("home");
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
-  const navItems = [
-    { id: "home", label: "Home" },
-    { id: "about", label: "About" },
-    { id: "skills", label: "Skills" },
-    { id: "experience", label: "Experience" },
-    { id: "projects", label: "Projects" },
-    { id: "achievements", label: "Achievements" },
-    { id: "contact", label: "Contact" },
-  ];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -84,9 +84,8 @@ const Navbar = () => {
                 onClick={() => scrollToSection(item.id)}
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
-                className={`relative hover:text-cyan-400 transition-colors font-medium ${
-                  activeSection === item.id ? "text-cyan-400" : ""
-                }`}
+                className={`relative hover:text-cyan-400 transition-colors font-medium ${activeSection === item.id ? "text-cyan-400" : ""
+                  }`}
               >
                 {item.label}
                 {activeSection === item.id && (
@@ -195,11 +194,10 @@ const Navbar = () => {
                   transition={{ delay: index * 0.05 }}
                   onClick={() => scrollToSection(item.id)}
                   whileTap={{ scale: 0.95 }}
-                  className={`block w-full text-left py-3 px-4 rounded-lg transition-colors ${
-                    activeSection === item.id
+                  className={`block w-full text-left py-3 px-4 rounded-lg transition-colors ${activeSection === item.id
                       ? "bg-purple-500/20 text-cyan-400"
                       : "hover:bg-neutral-800/50 text-neutral-300"
-                  }`}
+                    }`}
                 >
                   {item.label}
                 </motion.button>

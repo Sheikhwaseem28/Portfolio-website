@@ -1,7 +1,7 @@
-import project1 from "./assets/projects/project2.jpg";
+
 import project2 from "./assets/projects/project3.png";
 import project3 from "./assets/projects/project1.png";
-import projectTxt from "./assets/projects/projectTax.jpg";
+
 import skilscan from "./assets/projects/Skillscan.png"
 
 // ============================================
