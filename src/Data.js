@@ -1,8 +1,6 @@
-
 import project2 from "./assets/projects/project3.png";
 import project3 from "./assets/projects/project1.png";
-
-import skilscan from "./assets/projects/Skillscan.png"
+import skilscan from "./assets/projects/Skillscan.png";
 
 // ============================================
 // HERO SECTION - First Impression
@@ -66,10 +64,10 @@ export const SKILLS = [
 // FEATURED PROJECTS - Portfolio Highlights
 // ============================================
 export const PROJECTS = [
-    {
+  {
     title: "AlgoForge AI – AI-Powered DSA Revision & Optimization Platform",
     image: skilscan,
-    description: `• Solved the problem of inconsistent DSA revision and limited optimization feedback by architecting and developing \textbf{AlgoForge AI}, an AI-powered DSA Revision \& Optimization platform using MERN Stack and Gemini AI.
+    description: `• Solved the problem of inconsistent DSA revision and limited optimization feedback by architecting and developing AlgoForge AI, an AI-powered DSA Revision & Optimization platform using MERN Stack and Gemini AI.
 • Implemented AI-driven code review, automated error detection and correction, time/space complexity analysis, structured revision tracking, solution optimization with version comparison, and DFD visualization to drive measurable improvement in retention, analytical clarity, and interview readiness.`,
     technologies: [
       "React.js",
@@ -82,18 +80,18 @@ export const PROJECTS = [
       "Tailwind CSS"
     ],
     liveLink: "https://algorevision-ai.vercel.app/",
- highlights: [
-  "AI-Powered Code Review & Error Resolution",
-  "Automated Time & Space Complexity Analysis",
-  "Structured DSA Revision & Reminder Management",
-  "Intelligent Code Optimization with Version Comparison",
-  "DFD-Based Algorithm Visualization",
-  "Multi-Language Code Storage & Execution",
-  "Full-Stack MERN Architecture with Gemini AI Integration"
-]
+    highlights: [
+      "AI-Powered Code Review & Error Resolution",
+      "Automated Time & Space Complexity Analysis",
+      "Structured DSA Revision & Reminder Management",
+      "Intelligent Code Optimization with Version Comparison",
+      "DFD-Based Algorithm Visualization",
+      "Multi-Language Code Storage & Execution",
+      "Full-Stack MERN Architecture with Gemini AI Integration"
+    ],
   },
   {
-    title: "SkillScan -AI-Powered Resume Analyzer",
+    title: "SkillScan - AI-Powered Resume Analyzer",
     image: skilscan,
     description: `• Created an AI-powered resume analysis platform to address the common challenge faced by students and jobseekers where resumes fail to match real job requirements, delivering clear insights on skill gaps and role alignment.
 • Designed secure Google OAuth and email-based authentication with per-user request limits, and built scalable Node.js APIs to ensure controlled usage, data protection, and reliable system performance.`,
@@ -116,16 +114,6 @@ export const PROJECTS = [
       "ATS Optimization Insights",
       "Production-Ready Architecture"
     ],
-  },
-  {
-    title: "Echocircle - Social Networking Platform",
-    image: project3,
-    description: `• Developed a secure social media platform using JWT authentication and bcrypt encryption, enabling safe creation, sharing, and management of text and image-based user content.
-• Built personal user profiles and a content management dashboard to streamline user and post handling,
-ensuring smooth performance and responsive behavior across all devices`,
-    technologies: ["React.js", "Express.js", "MongoDB", "Node.js", "JWT", "bcrypt", "Tailwind CSS"],
-    link: "https://github.com/Sheikhwaseem28/Echocircle-frontend",
-    highlights: ["Secure Authentication", "Real-time Updates", "User Dashboard", "Scalable Architecture"],
   },
   {
     title: "LinkZipp - URL Shortener Platform",
