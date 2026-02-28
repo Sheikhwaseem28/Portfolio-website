@@ -1,5 +1,4 @@
 import project2 from "./assets/projects/project3.png";
-import project3 from "./assets/projects/project1.png";
 import skilscan from "./assets/projects/Skillscan.png";
 
 // ============================================
