@@ -1,5 +1,6 @@
 import project2 from "./assets/projects/project3.png";
 import skilscan from "./assets/projects/Skillscan.png";
+import AlgoForge from "./assets/projects/AlgoForge.png";
 
 // ============================================
 // HERO SECTION - First Impression
@@ -65,7 +66,7 @@ export const SKILLS = [
 export const PROJECTS = [
   {
     title: "AlgoForge AI – AI-Powered DSA Revision & Optimization Platform",
-    image: skilscan,
+    image: AlgoForge,
     description: `• Solved the problem of inconsistent DSA revision and limited optimization feedback by architecting and developing AlgoForge AI, an AI-powered DSA Revision & Optimization platform using MERN Stack and Gemini AI.
 • Implemented AI-driven code review, automated error detection and correction, time/space complexity analysis, structured revision tracking, solution optimization with version comparison, and DFD visualization to drive measurable improvement in retention, analytical clarity, and interview readiness.`,
     technologies: [
