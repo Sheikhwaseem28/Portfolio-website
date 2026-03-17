@@ -1,5 +1,5 @@
 import { FaLinkedin, FaGithub, FaHeart } from "react-icons/fa";
-import { SiGeeksforgeeks } from "react-icons/si";
+import { SiLeetcode } from "react-icons/si";
 import { motion } from "framer-motion";
 
 const Footer = () => {
@@ -32,9 +32,10 @@ const Footer = () => {
             <a href="https://github.com/Sheikhwaseem28" className="hover:text-cyan-400 transition-colors">
               <FaGithub />
             </a>
-            <a href="https://www.geeksforgeeks.org/user/sheikhwc1zo/" className="hover:text-cyan-400 transition-colors">
-              <SiGeeksforgeeks />
+            <a href="https://leetcode.com/u/sheikhwaseem/" className="hover:text-cyan-400 transition-colors">
+              <SiLeetcode />
             </a>
+
           </motion.div>
         </div>
       </div>

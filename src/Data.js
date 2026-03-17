@@ -20,9 +20,13 @@ export const EXPERIENCES = [
     year: "Aug 2025 - Present",
     role: "Software Developer Intern",
     company: "Dutta Integrated Services",
-    description: `• Solved a complex customer engagement problem by building a month-wise order tracking and analytics system using the MERN stack, identifying inactive customers through behavioral patterns and enabling data-driven retention strategies that improved customer retention by 10%.
+    description: `• Architected and deployed a secure role-based web application for an experimental equipment client,
+implementing granular access controls (RBAC) that restricted employee data access by assignment while
+automating complex business workflows and quotation lifecycles.
 
-• Solved the challenge of fragmented IPD patient record management by developing a centralized IPD patienttimeline system for an HMS portal, enabling seamless chronological tracking of medications,diagnostic tests, and visit schedules, and significantly improving clinical visibility and operational efficiency forhealthcare teams.`,
+• Engineered a month-wise order tracking and analytics platform using the MERN stack that analyzed
+behavioral patterns to identify inactive customers and segment users by churn risk, enabling targeted retention
+campaigns that increased customer retention by 10%.,`,
     technologies: ["React.js", "Node.js", "MongoDB", "Express.js", "Rest APIs", "Server-Socket"],
   },
   {
@@ -67,8 +71,12 @@ export const PROJECTS = [
   {
     title: "AlgoForge AI – AI-Powered DSA Revision & Optimization Platform",
     image: AlgoForge,
-    description: `• Solved the problem of inconsistent DSA revision and limited optimization feedback by architecting and developing AlgoForge AI, an AI-powered DSA Revision & Optimization platform using MERN Stack and Gemini AI.
-• Implemented AI-driven code review, automated error detection and correction, time/space complexity analysis, structured revision tracking, solution optimization with version comparison, and DFD visualization to drive measurable improvement in retention, analytical clarity, and interview readiness.`,
+    description: `• Architected an intelligent DSA revision platform integrating Gemini AI with the MERN stack to deliver
+personalized optimization feedback and structured revision schedules, bridging the gap between
+problem-solving practice and algorithmic efficiency.
+• Developed a comprehensive code analysis engine featuring automated error detection/correction, time/space
+complexity evaluation, version-to-version optimization comparisons, and interactive DFD
+visualization—directly improving user retention and analytical proficiency.`,
     technologies: [
       "React.js",
       "Node.js",
@@ -93,8 +101,12 @@ export const PROJECTS = [
   {
     title: "SkillScan - AI-Powered Resume Analyzer",
     image: skilscan,
-    description: `• Created an AI-powered resume analysis platform to address the common challenge faced by students and jobseekers where resumes fail to match real job requirements, delivering clear insights on skill gaps and role alignment.
-• Designed secure Google OAuth and email-based authentication with per-user request limits, and built scalable Node.js APIs to ensure controlled usage, data protection, and reliable system performance.`,
+    description: `• Engineered an AI-powered resume analysis platform that compares candidate resumes against target job
+descriptions to generate personalized skill gap analyses and role alignment metrics, enabling data-driven
+application optimization for job seekers.
+• Implemented secure authentication mechanisms including Google OAuth and email-based login with per-user
+rate limiting, while designing scalable Node.js APIs that balance controlled access with data confidentiality
+and consistent system performance.`,
     technologies: [
       "React.js",
       "Node.js",
@@ -118,7 +130,10 @@ export const PROJECTS = [
   {
     title: "LinkZipp - URL Shortener Platform",
     image: project2,
-    description: `Complete URL shortener with secure user authentication and session management. Integrated click tracking and analytics to monitor link performance and user engagement. Implemented JWT-based session security to protect user data and ensure safe authentication. Designed easy-to-use interface focused on usability and smooth navigation with responsive design.`,
+    description: `• Developed a full-stack URL shortening service that transforms lengthy URLs into concise, shareable links with
+guaranteed redirection integrity, simplifying link sharing through an intuitive interface.
+• Built robust backend services using Node.js and Express to handle CRUD operations for URL management,
+implementing optimized MongoDB schemas and low-latency redirection logic for seamless user experiences.`,
     technologies: ["React.js", "Node.js", "MongoDB", "Express.js", "JWT", "Analytics"],
     link: "https://github.com/Sheikhwaseem28/Link_frontend",
     liveLink: "https://link-frontend-omega.vercel.app/",
@@ -166,8 +181,9 @@ export const CONTACT = {
   email: "sheikhwaseem700800@gmail.com",
   linkedin: "https://www.linkedin.com/in/sheikh-waseem/",
   github: "https://github.com/Sheikhwaseem28",
-  geeksforgeeks: "https://www.geeksforgeeks.org/user/sheikhwc1zo/",
+  leetcode: "https://leetcode.com/u/sheikhwaseem/",
   availability: "Immediately Available",
+
   location: "Open to Remote/Hybrid/Onsite opportunities",
 };
 

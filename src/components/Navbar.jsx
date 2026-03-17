@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import logo from "../assets/w.png";
 import { FaLinkedin, FaGithub, FaBars, FaTimes } from "react-icons/fa";
-import { SiGeeksforgeeks } from "react-icons/si";
+import { SiLeetcode } from "react-icons/si";
 import { motion, AnimatePresence } from "framer-motion";
 
 const navItems = [
@@ -134,12 +134,12 @@ const Navbar = () => {
               transition={{ delay: 1.0, type: "spring" }}
               whileHover={{ scale: 1.3, rotate: 10 }}
               whileTap={{ scale: 0.9 }}
-              href="https://www.geeksforgeeks.org/user/sheikhwc1zo/"
+              href="https://leetcode.com/u/sheikhwaseem/"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-cyan-400 transition-colors"
             >
-              <SiGeeksforgeeks />
+              <SiLeetcode />
             </motion.a>
           </div>
 
@@ -231,12 +231,12 @@ const Navbar = () => {
                 <motion.a
                   whileHover={{ scale: 1.2 }}
                   whileTap={{ scale: 0.9 }}
-                  href="https://www.geeksforgeeks.org/user/sheikhwc1zo/"
+                  href="https://leetcode.com/u/sheikhwaseem/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-cyan-400 transition-colors"
                 >
-                  <SiGeeksforgeeks />
+                  <SiLeetcode />
                 </motion.a>
               </motion.div>
             </motion.div>

@@ -157,17 +157,19 @@ const Projects = () => {
                   transition={{ duration: 0.5, delay: 0.4 }}
                   className="flex items-center gap-3 mt-2"
                 >
-                  <motion.a
-                    href={project.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="flex items-center justify-center gap-2 bg-purple-500 text-white px-4 py-2 rounded-lg hover:bg-purple-600 transition-colors shadow-lg text-sm font-semibold flex-1"
-                  >
-                    <FaGithub className="text-lg" />
-                    <span>View Code</span>
-                  </motion.a>
+                  {project.link && (
+                    <motion.a
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      className="flex items-center justify-center gap-2 bg-purple-500 text-white px-4 py-2 rounded-lg hover:bg-purple-600 transition-colors shadow-lg text-sm font-semibold flex-1"
+                    >
+                      <FaGithub className="text-lg" />
+                      <span>View Code</span>
+                    </motion.a>
+                  )}
                   
                   {project.liveLink && (
                     <motion.a
@@ -182,6 +184,7 @@ const Projects = () => {
                       <span>Live Demo</span>
                     </motion.a>
                   )}
+
                 </motion.div>
               </div>
 

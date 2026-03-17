@@ -1,7 +1,7 @@
 import { CONTACT } from "../Data.js";
 import { motion } from "framer-motion";
 import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope, FaLinkedin, FaGithub } from "react-icons/fa";
-import { SiGeeksforgeeks } from "react-icons/si";
+import { SiLeetcode } from "react-icons/si";
 
 export const Contact = () => {
   const contactInfo = [
@@ -42,10 +42,10 @@ export const Contact = () => {
       label: "GitHub",
     },
     {
-      icon: SiGeeksforgeeks,
-      url: "https://www.geeksforgeeks.org/user/sheikhwc1zo/",
-      color: "hover:text-green-500",
-      label: "GeeksforGeeks",
+      icon: SiLeetcode,
+      url: "https://leetcode.com/u/sheikhwaseem/",
+      color: "hover:text-amber-500",
+      label: "LeetCode",
     },
   ];
 
