@@ -20,13 +20,9 @@ export const EXPERIENCES = [
     year: "Aug 2025 - Present",
     role: "Software Developer Intern",
     company: "Dutta Integrated Services",
-    description: `• Architected and deployed a secure role-based web application for an experimental equipment client,
-implementing granular access controls (RBAC) that restricted employee data access by assignment while
-automating complex business workflows and quotation lifecycles.
+    description: `• Architected and deployed a secure role-based web application for an experimental equipment client, implementing granular access controls (RBAC) that restricted employee data access by assignment while complex business workflows and quotation lifecycles.
 
-• Engineered a month-wise order tracking and analytics platform using the MERN stack that analyzed
-behavioral patterns to identify inactive customers and segment users by churn risk, enabling targeted retention
-campaigns that increased customer retention by 10%.,`,
+• Engineered a month-wise order tracking and analytics platform using the MERN stack that analyzed behavioral patterns to identify inactive customers and segment users by churn risk, enabling targeted retention campaigns that increased customer retention by 10%.`,
     technologies: ["React.js", "Node.js", "MongoDB", "Express.js", "Rest APIs", "Server-Socket"],
   },
   {
@@ -71,12 +67,8 @@ export const PROJECTS = [
   {
     title: "AlgoForge AI – AI-Powered DSA Revision & Optimization Platform",
     image: AlgoForge,
-    description: `• Architected an intelligent DSA revision platform integrating Gemini AI with the MERN stack to deliver
-personalized optimization feedback and structured revision schedules, bridging the gap between
-problem-solving practice and algorithmic efficiency.
-• Developed a comprehensive code analysis engine featuring automated error detection/correction, time/space
-complexity evaluation, version-to-version optimization comparisons, and interactive DFD
-visualization—directly improving user retention and analytical proficiency.`,
+    description: `• Architected an intelligent DSA revision platform integrating Gemini AI with the MERN stack to deliver personalized optimization feedback and structured revision schedules, bridging the gap between problem-solving practice and algorithmic efficiency.
+• Developed a comprehensive code analysis engine featuring automated error detection/correction, time/space complexity evaluation, version-to-version optimization comparisons, and interactive DFD visualization—directly improving user retention and analytical proficiency.`,
     technologies: [
       "React.js",
       "Node.js",
@@ -101,12 +93,8 @@ visualization—directly improving user retention and analytical proficiency.`,
   {
     title: "SkillScan - AI-Powered Resume Analyzer",
     image: skilscan,
-    description: `• Engineered an AI-powered resume analysis platform that compares candidate resumes against target job
-descriptions to generate personalized skill gap analyses and role alignment metrics, enabling data-driven
-application optimization for job seekers.
-• Implemented secure authentication mechanisms including Google OAuth and email-based login with per-user
-rate limiting, while designing scalable Node.js APIs that balance controlled access with data confidentiality
-and consistent system performance.`,
+    description: `• Engineered an AI-powered resume analysis platform that compares candidate resumes against target job descriptions to generate personalized skill gap analyses and role alignment metrics, enabling data-driven application optimization for job seekers.
+• Implemented secure authentication mechanisms including Google OAuth and email-based login with per-user rate limiting, while designing scalable Node.js APIs that balance controlled access with data confidentiality and consistent system performance.`,
     technologies: [
       "React.js",
       "Node.js",
@@ -130,10 +118,8 @@ and consistent system performance.`,
   {
     title: "LinkZipp - URL Shortener Platform",
     image: project2,
-    description: `• Developed a full-stack URL shortening service that transforms lengthy URLs into concise, shareable links with
-guaranteed redirection integrity, simplifying link sharing through an intuitive interface.
-• Built robust backend services using Node.js and Express to handle CRUD operations for URL management,
-implementing optimized MongoDB schemas and low-latency redirection logic for seamless user experiences.`,
+    description: `• Developed a full-stack URL shortening service that transforms lengthy URLs into concise, shareable links with guaranteed redirection integrity, simplifying link sharing through an intuitive interface.
+• Built robust backend services using Node.js and Express to handle CRUD operations for URL management, implementing optimized MongoDB schemas and low-latency redirection logic for seamless user experiences.`,
     technologies: ["React.js", "Node.js", "MongoDB", "Express.js", "JWT", "Analytics"],
     link: "https://github.com/Sheikhwaseem28/Link_frontend",
     liveLink: "https://link-frontend-omega.vercel.app/",
