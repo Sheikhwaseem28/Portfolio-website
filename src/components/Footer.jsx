@@ -15,7 +15,7 @@ const Footer = () => (
       {/* Brand */}
       <div>
         <p className="text-sm font-semibold text-[#F5F5F5]">Sheikh Waseem</p>
-        <p className="text-xs text-[#A1A1AA] mt-0.5">MERN Stack Developer</p>
+        <p className="text-xs text-[#A1A1AA] mt-0.5">Software Developer</p>
       </div>
 
       {/* Credit */}
@@ -27,8 +27,8 @@ const Footer = () => (
       <div className="flex items-center gap-4 text-[#A1A1AA] text-base">
         {[
           { Icon: FaLinkedin, href: CONTACT.linkedin },
-          { Icon: FaGithub,   href: CONTACT.github   },
-          { Icon: SiLeetcode, href: CONTACT.leetcode  },
+          { Icon: FaGithub, href: CONTACT.github },
+          { Icon: SiLeetcode, href: CONTACT.leetcode },
         ].map(({ Icon, href }, i) => (
           <motion.a
             key={i}

@@ -160,7 +160,7 @@ const Skills = () => {
                   className="group relative"
                 >
                   <motion.div
-                    whileHover={{ 
+                    whileHover={{
                       scale: 1.3,
                       rotateY: 180,
                       transition: { duration: 0.5 }
