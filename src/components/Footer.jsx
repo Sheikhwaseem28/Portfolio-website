@@ -18,11 +18,6 @@ const Footer = () => (
         <p className="text-xs text-[#A1A1AA] mt-0.5">Software Developer</p>
       </div>
 
-      {/* Credit */}
-      <p className="text-xs text-[#A1A1AA] flex items-center gap-1">
-        Built with <FaHeart className="text-[#F5F5F5] text-[10px]" /> using React & Tailwind
-      </p>
-
       {/* Social */}
       <div className="flex items-center gap-4 text-[#A1A1AA] text-base">
         {[
