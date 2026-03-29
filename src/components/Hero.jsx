@@ -1,232 +1,192 @@
 import { HERO_CONTENT } from "../Data.js";
 import { motion } from "framer-motion";
-import { FaDownload, FaCode, FaLaptopCode, FaReact } from "react-icons/fa";
-import { SiJavascript, SiNodedotjs, SiMongodb, SiTailwindcss } from "react-icons/si";
-import resumePDF from "./Sheikh_Waseem_Resume.pdf"; // Import the PDF from root src folder
+import { FaDownload, FaArrowRight } from "react-icons/fa";
+import { SiReact, SiNodedotjs, SiMongodb, SiTailwindcss, SiJavascript, SiExpress } from "react-icons/si";
+import resumePDF from "./Sheikh_Waseem_Resume.pdf";
 
-const container = (delay) => ({
-  hidden: { x: -100, opacity: 0 },
-  visible: {
-    x: 0,
-    opacity: 1,
-    transition: { duration: 0.5, delay: delay },
-  },
+/* ── Variants ─────────────────────────── */
+const fadeUp = (delay = 0) => ({
+  hidden: { opacity: 0, y: 40 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.8, delay, ease: "easeInOut" } },
 });
 
-const Hero = () => {
+const techIcons = [
+  { Icon: SiReact, label: "React" },
+  { Icon: SiNodedotjs, label: "Node.js" },
+  { Icon: SiMongodb, label: "MongoDB" },
+  { Icon: SiTailwindcss, label: "Tailwind" },
+  { Icon: SiJavascript, label: "JavaScript" },
+  { Icon: SiExpress, label: "Express" },
+];
 
-  // Function to handle resume download
+const Hero = () => {
   const handleResumeDownload = () => {
-    // Create a link element
-    const link = document.createElement('a');
+    const link = document.createElement("a");
     link.href = resumePDF;
-    link.download = 'Sheikh_Waseem_Resume.pdf'; // Suggested filename
+    link.download = "Sheikh_Waseem_Resume.pdf";
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
   };
 
   return (
-    <div className="border-b border-neutral-900 pb-4 lg:mb-35">
-      <div className="flex flex-wrap">
-        <div className="w-full lg:w-1/2">
-          <div className="flex flex-col items-center lg:items-start">
-            <motion.h1
-              variants={container(0)}
-              initial="hidden"
-              animate="visible"
-              className="pb-2 text-6xl font-thin tracking-tight lg:mt-16 lg:text-8xl"
-            >
-              Sheikh Waseem
-            </motion.h1>
-            <motion.span
-              variants={container(0.5)}
-              initial="hidden"
-              animate="visible"
-              className="bg-gradient-to-r from-pink-300 via-slate-500 to-purple-500 bg-clip-text text-5xl tracking-tight text-transparent"
-            >
+    <div id="home" className="min-h-screen flex items-center section-divider">
+      <div className="w-full flex flex-col lg:flex-row items-center gap-6 pt-24 pb-12 md:py-24">
+        {/* ── Left Content ─────────────────── */}
+        <div className="flex-1 flex flex-col items-center lg:items-start text-center lg:text-left">
+
+          {/* Name */}
+          <motion.h1
+            variants={fadeUp(0.1)}
+            initial="hidden"
+            animate="visible"
+            className="text-4xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold tracking-tight text-[#F5F5F5] leading-tight mb-3 md:mb-4"
+          >
+            Sheikh Waseem
+          </motion.h1>
+
+          {/* Role */}
+          <motion.div
+            variants={fadeUp(0.25)}
+            initial="hidden"
+            animate="visible"
+            className="mb-8"
+          >
+            <span className="shimmer-text text-xl sm:text-2xl font-medium tracking-wide">
               Software Developer
-            </motion.span>
-            <motion.p
-              variants={container(1)}
-              initial="hidden"
-              animate="visible"
-              className="my-2 max-w-2xl py-9 font-light tracking-tighter"
+            </span>
+          </motion.div>
+
+          {/* Description */}
+          <motion.p
+            variants={fadeUp(0.4)}
+            initial="hidden"
+            animate="visible"
+            className="max-w-lg text-[#A1A1AA] text-sm sm:text-base leading-relaxed mb-8"
+          >
+            {HERO_CONTENT}
+          </motion.p>
+
+          {/* CTA Buttons */}
+          <motion.div
+            variants={fadeUp(0.55)}
+            initial="hidden"
+            animate="visible"
+            className="flex flex-wrap justify-center lg:justify-start gap-4"
+          >
+            <motion.button
+              onClick={handleResumeDownload}
+              whileHover={{ scale: 1.04 }}
+              whileTap={{ scale: 0.97 }}
+              className="flex items-center gap-2 bg-[#F5F5F5] text-[#0F0F0F] font-semibold text-sm px-6 py-3 rounded-full hover:bg-white transition-all"
             >
-              {HERO_CONTENT}
-            </motion.p>
-            <motion.div
-              variants={container(1.2)}
-              initial="hidden"
-              animate="visible"
-              className="flex gap-4 mt-4"
+              <FaDownload className="text-xs" />
+              Download Resume
+            </motion.button>
+
+            <motion.a
+              href="#contact"
+              whileHover={{ scale: 1.04 }}
+              whileTap={{ scale: 0.97 }}
+              className="flex items-center gap-2 border border-white/20 text-[#F5F5F5] font-medium text-sm px-6 py-3 rounded-full hover:bg-white/5 hover:border-white/40 transition-all"
             >
-              <motion.button
-                onClick={handleResumeDownload}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="bg-gradient-to-r from-purple-500 to-cyan-500 text-white font-semibold px-6 py-3 rounded-lg flex items-center gap-2 hover:shadow-lg hover:shadow-purple-500/50 transition-all"
-              >
-                <FaDownload />
-                Resume
-              </motion.button>
-              <motion.a
-                href="#contact"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="border-2 border-purple-500 text-purple-400 font-semibold px-6 py-3 rounded-lg hover:bg-purple-500/10 transition-all"
-              >
-                Contact Me
-              </motion.a>
-            </motion.div>
-          </div>
+              Let's Talk
+              <FaArrowRight className="text-xs" />
+            </motion.a>
+          </motion.div>
+
+          {/* Stats row */}
+          <motion.div
+            variants={fadeUp(0.7)}
+            initial="hidden"
+            animate="visible"
+            className="flex items-center gap-8 mt-12"
+          >
+            {[
+              { value: "350+", label: "Problems Solved" },
+              { value: "15+", label: "Projects Built" },
+              { value: "AIR 343", label: "GFG Ranking" },
+            ].map((stat, i) => (
+              <div key={i} className="text-center lg:text-left">
+                <p className="text-2xl font-bold text-[#F5F5F5]">{stat.value}</p>
+                <p className="text-xs text-[#A1A1AA] mt-0.5">{stat.label}</p>
+              </div>
+            ))}
+          </motion.div>
         </div>
 
-        {/* Animated Developer Illustration */}
-        <div className="w-full lg:w-1/2 lg:p-8">
-          <div className="flex justify-center items-center h-full">
+        {/* ── Right Illustration ──────────── */}
+        <div className="flex-shrink-0 flex items-center justify-center">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
+            className="relative w-72 h-72 sm:w-80 sm:h-80 lg:w-96 lg:h-96"
+          >
+            {/* Outer pulsing ring */}
             <motion.div
-              initial={{ opacity: 0, scale: 0.5 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 1, delay: 0.5 }}
-              className="relative w-96 h-96"
+              animate={{ scale: [1, 1.08, 1], opacity: [0.15, 0.35, 0.15] }}
+              transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+              className="absolute inset-0 rounded-full border border-white/30"
+            />
+            {/* Inner pulsing ring */}
+            <motion.div
+              animate={{ scale: [1, 1.12, 1], opacity: [0.08, 0.25, 0.08] }}
+              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+              className="absolute inset-4 rounded-full border border-white/20"
+            />
+
+            {/* Center: Code Brackets */}
+            <motion.div
+              animate={{ y: [0, -12, 0] }}
+              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+              className="absolute inset-0 flex items-center justify-center"
             >
-              {/* Central Laptop */}
-              <motion.div
-                animate={{
-                  y: [0, -20, 0],
-                }}
-                transition={{
-                  duration: 3,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
-                className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
-              >
-                <FaLaptopCode className="text-9xl text-purple-500" />
-              </motion.div>
-
-              {/* Orbiting Icons */}
-              <motion.div
-                animate={{ rotate: 360 }}
-                transition={{
-                  duration: 20,
-                  repeat: Infinity,
-                  ease: "linear",
-                }}
-                className="absolute inset-0"
-              >
-                {/* React Icon */}
-                <motion.div
-                  className="absolute top-0 left-1/2 transform -translate-x-1/2"
-                  whileHover={{ scale: 1.3 }}
+              <div className="text-center select-none">
+                <p className="text-7xl font-thin text-[#F5F5F5]/80 leading-none">&lt;/&gt;</p>
+                <motion.p
+                  animate={{ opacity: [0.3, 0.8, 0.3] }}
+                  transition={{ duration: 2.5, repeat: Infinity }}
+                  className="text-xs text-[#A1A1AA] mt-2 tracking-widest"
                 >
-                  <FaReact className="text-5xl text-cyan-400" />
-                </motion.div>
-
-                {/* JavaScript Icon */}
-                <motion.div
-                  className="absolute top-1/4 right-0"
-                  whileHover={{ scale: 1.3 }}
-                >
-                  <SiJavascript className="text-5xl text-yellow-400" />
-                </motion.div>
-
-                {/* Node.js Icon */}
-                <motion.div
-                  className="absolute bottom-1/4 right-0"
-                  whileHover={{ scale: 1.3 }}
-                >
-                  <SiNodedotjs className="text-5xl text-green-500" />
-                </motion.div>
-
-                {/* MongoDB Icon */}
-                <motion.div
-                  className="absolute bottom-0 left-1/2 transform -translate-x-1/2"
-                  whileHover={{ scale: 1.3 }}
-                >
-                  <SiMongodb className="text-5xl text-green-400" />
-                </motion.div>
-
-                {/* Tailwind Icon */}
-                <motion.div
-                  className="absolute bottom-1/4 left-0"
-                  whileHover={{ scale: 1.3 }}
-                >
-                  <SiTailwindcss className="text-5xl text-cyan-500" />
-                </motion.div>
-
-                {/* Code Icon */}
-                <motion.div
-                  className="absolute top-1/4 left-0"
-                  whileHover={{ scale: 1.3 }}
-                >
-                  <FaCode className="text-5xl text-purple-400" />
-                </motion.div>
-              </motion.div>
-
-              {/* Pulsing Ring */}
-              <motion.div
-                animate={{
-                  scale: [1, 1.2, 1],
-                  opacity: [0.3, 0.6, 0.3],
-                }}
-                transition={{
-                  duration: 2,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
-                className="absolute inset-0 rounded-full border-4 border-purple-500"
-              />
-
-              {/* Secondary Ring */}
-              <motion.div
-                animate={{
-                  scale: [1, 1.3, 1],
-                  opacity: [0.2, 0.5, 0.2],
-                }}
-                transition={{
-                  duration: 3,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                  delay: 0.5,
-                }}
-                className="absolute inset-0 rounded-full border-2 border-cyan-500"
-              />
-
-              {/* Floating Code Brackets */}
-              <motion.div
-                animate={{
-                  y: [0, -30, 0],
-                  opacity: [0.5, 1, 0.5],
-                }}
-                transition={{
-                  duration: 4,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
-                className="absolute -top-10 left-10 text-6xl text-purple-300"
-              >
-                {"</>"}
-              </motion.div>
-
-              <motion.div
-                animate={{
-                  y: [0, 30, 0],
-                  opacity: [0.5, 1, 0.5],
-                }}
-                transition={{
-                  duration: 4,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                  delay: 1,
-                }}
-                className="absolute -bottom-10 right-10 text-6xl text-cyan-300"
-              >
-                {"{}"}
-              </motion.div>
+                  SOFTWARE DEVELOPER
+                </motion.p>
+              </div>
             </motion.div>
-          </div>
+
+            {/* Orbiting tech icons */}
+            {techIcons.map(({ Icon, label }, i) => {
+              const angle = (i / techIcons.length) * 360;
+              const rad = (angle * Math.PI) / 180;
+              const r = 160; // px from center
+              const x = Math.cos(rad) * r;
+              const y = Math.sin(rad) * r;
+              return (
+                <motion.div
+                  key={label}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.5 + i * 0.1 }}
+                  style={{
+                    position: "absolute", top: "50%", left: "50%",
+                    transform: `translate(calc(-50% + ${x}px), calc(-50% + ${y}px))`
+                  }}
+                >
+                  <motion.div
+                    whileHover={{ scale: 1.3 }}
+                    animate={{ rotate: [0, 5, -5, 0] }}
+                    transition={{ duration: 4, repeat: Infinity, delay: i * 0.3 }}
+                    className="flex flex-col items-center gap-1 cursor-default"
+                    title={label}
+                  >
+                    <div className="w-10 h-10 rounded-xl bg-[#1A1A1A] border border-white/10 flex items-center justify-center text-[#A1A1AA] hover:text-[#F5F5F5] hover:border-white/30 transition-all">
+                      <Icon className="text-lg" />
+                    </div>
+                  </motion.div>
+                </motion.div>
+              );
+            })}
+          </motion.div>
         </div>
       </div>
     </div>

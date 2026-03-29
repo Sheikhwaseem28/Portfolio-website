@@ -3,135 +3,97 @@ import { useState } from "react";
 import { FaPaperPlane, FaUser, FaEnvelope, FaComment } from "react-icons/fa";
 import { MdSubject } from "react-icons/md";
 
+const inputClass =
+  "w-full pl-11 pr-4 py-3.5 bg-[#1A1A1A] border border-white/[0.08] rounded-xl " +
+  "focus:border-white/30 focus:outline-none text-[#F5F5F5] text-sm " +
+  "transition-all duration-200 placeholder:text-[#A1A1AA]/50";
+
 const ContactForm = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    subject: "",
-    message: "",
-  });
-
+  const [formData, setFormData] = useState({ name: "", email: "", subject: "", message: "" });
   const [focusedField, setFocusedField] = useState("");
+  const [submitted, setSubmitted] = useState(false);
 
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
+  const handleChange = (e) => setFormData({ ...formData, [e.target.name]: e.target.value });
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Add form submission logic here
     console.log("Form submitted:", formData);
-    alert("Message sent successfully!");
-    setFormData({ name: "", email: "", subject: "", message: "" });
+    setSubmitted(true);
+    setTimeout(() => {
+      setSubmitted(false);
+      setFormData({ name: "", email: "", subject: "", message: "" });
+    }, 3000);
   };
 
-  const inputFields = [
-    {
-      name: "name",
-      type: "text",
-      placeholder: "Your Name",
-      icon: FaUser,
-      cols: "md:col-span-1",
-    },
-    {
-      name: "email",
-      type: "email",
-      placeholder: "Your Email",
-      icon: FaEnvelope,
-      cols: "md:col-span-1",
-    },
-    {
-      name: "subject",
-      type: "text",
-      placeholder: "Subject",
-      icon: MdSubject,
-      cols: "md:col-span-2",
-    },
+  const fields = [
+    { name: "name",    type: "text",  placeholder: "Your Name",  Icon: FaUser,    col: "" },
+    { name: "email",   type: "email", placeholder: "Your Email", Icon: FaEnvelope, col: "" },
+    { name: "subject", type: "text",  placeholder: "Subject",    Icon: MdSubject,  col: "md:col-span-2" },
   ];
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 50 }}
+      initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6 }}
       viewport={{ once: true }}
+      transition={{ duration: 0.7 }}
       className="max-w-3xl mx-auto"
     >
-      <form onSubmit={handleSubmit} className="space-y-6">
-        {/* Input Fields Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {inputFields.map((field, index) => (
+      <form onSubmit={handleSubmit} className="space-y-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+          {fields.map(({ name, type, placeholder, Icon, col }, i) => (
             <motion.div
-              key={field.name}
-              initial={{ opacity: 0, x: -20 }}
+              key={name}
+              initial={{ opacity: 0, x: -16 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className={`relative group ${field.cols}`}
+              transition={{ delay: i * 0.08 }}
+              className={`relative ${col}`}
             >
-              {/* Icon */}
               <motion.div
                 animate={{
-                  scale: focusedField === field.name ? 1.2 : 1,
-                  color: focusedField === field.name ? "#a855f7" : "#737373",
+                  scale: focusedField === name ? 1.1 : 1,
+                  color: focusedField === name ? "#F5F5F5" : "#A1A1AA",
                 }}
-                className="absolute left-4 top-1/2 transform -translate-y-1/2 text-neutral-500 z-10"
+                transition={{ duration: 0.2 }}
+                className="absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none z-10"
               >
-                <field.icon className="text-lg" />
+                <Icon className="text-sm" />
               </motion.div>
-
-              {/* Input */}
-              <motion.input
-                type={field.type}
-                name={field.name}
-                value={formData[field.name]}
+              <input
+                type={type}
+                name={name}
+                value={formData[name]}
                 onChange={handleChange}
-                onFocus={() => setFocusedField(field.name)}
+                onFocus={() => setFocusedField(name)}
                 onBlur={() => setFocusedField("")}
-                placeholder={field.placeholder}
+                placeholder={placeholder}
                 required
-                whileHover={{ scale: 1.01 }}
-                className="w-full pl-12 pr-4 py-4 bg-neutral-900/50 backdrop-blur-sm border-2 border-neutral-800 rounded-xl focus:border-purple-500 focus:outline-none text-neutral-300 transition-all placeholder:text-neutral-600"
-              />
-
-              {/* Animated Border Glow */}
-              <motion.div
-                className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity duration-300"
-                style={{
-                  background:
-                    "linear-gradient(45deg, transparent, rgba(168, 85, 247, 0.3))",
-                  padding: "2px",
-                  WebkitMask:
-                    "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
-                  WebkitMaskComposite: "xor",
-                  maskComposite: "exclude",
-                }}
+                className={inputClass}
               />
             </motion.div>
           ))}
         </div>
 
-        {/* Message Textarea */}
+        {/* Textarea */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-          className="relative group"
+          transition={{ delay: 0.25 }}
+          className="relative"
         >
-          {/* Icon */}
           <motion.div
             animate={{
-              scale: focusedField === "message" ? 1.2 : 1,
-              color: focusedField === "message" ? "#a855f7" : "#737373",
+              scale: focusedField === "message" ? 1.1 : 1,
+              color: focusedField === "message" ? "#F5F5F5" : "#A1A1AA",
             }}
-            className="absolute left-4 top-4 text-neutral-500 z-10"
+            transition={{ duration: 0.2 }}
+            className="absolute left-3.5 top-4 pointer-events-none z-10"
           >
-            <FaComment className="text-lg" />
+            <FaComment className="text-sm" />
           </motion.div>
-
-          {/* Textarea */}
-          <motion.textarea
+          <textarea
             name="message"
             value={formData.message}
             onChange={handleChange}
@@ -139,98 +101,46 @@ const ContactForm = () => {
             onBlur={() => setFocusedField("")}
             placeholder="Your Message"
             required
-            rows="6"
-            whileHover={{ scale: 1.01 }}
-            className="w-full pl-12 pr-4 py-4 bg-neutral-900/50 backdrop-blur-sm border-2 border-neutral-800 rounded-xl focus:border-purple-500 focus:outline-none text-neutral-300 resize-none transition-all placeholder:text-neutral-600"
-          />
-
-          {/* Animated Border Glow */}
-          <motion.div
-            className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity duration-300"
-            style={{
-              background:
-                "linear-gradient(45deg, transparent, rgba(168, 85, 247, 0.3))",
-              padding: "2px",
-              WebkitMask:
-                "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
-              WebkitMaskComposite: "xor",
-              maskComposite: "exclude",
-            }}
+            rows={6}
+            className={`${inputClass} resize-none`}
           />
         </motion.div>
 
-        {/* Submit Button */}
+        {/* Submit */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.4 }}
+          transition={{ delay: 0.35 }}
         >
           <motion.button
             type="submit"
-            whileHover={{ scale: 1.02, y: -2 }}
-            whileTap={{ scale: 0.98 }}
-            className="relative w-full bg-gradient-to-r from-purple-500 to-cyan-500 text-white font-bold py-4 rounded-xl flex items-center justify-center gap-3 hover:shadow-2xl hover:shadow-purple-500/50 transition-all overflow-hidden group"
+            whileHover={{ scale: 1.02, y: -1 }}
+            whileTap={{ scale: 0.97 }}
+            disabled={submitted}
+            className={`relative w-full flex items-center justify-center gap-3 font-semibold text-sm py-4 rounded-xl transition-all overflow-hidden ${
+              submitted
+                ? "bg-white/10 text-[#A1A1AA] cursor-default"
+                : "bg-[#F5F5F5] text-[#0F0F0F] hover:bg-white"
+            }`}
           >
-            {/* Button Background Animation */}
-            <motion.div
-              className="absolute inset-0 bg-gradient-to-r from-cyan-500 to-purple-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-            />
-
-            {/* Icon and Text */}
-            <motion.div
-              animate={{ rotate: [0, -10, 0] }}
-              transition={{ duration: 2, repeat: Infinity }}
-              className="relative z-10"
-            >
-              <FaPaperPlane className="text-xl" />
-            </motion.div>
-            <span className="relative z-10 text-lg">Send Message</span>
-
-            {/* Shine Effect */}
-            <motion.div
-              className="absolute inset-0"
-              animate={{
-                x: ["-100%", "200%"],
-              }}
-              transition={{
-                duration: 2,
-                repeat: Infinity,
-                repeatDelay: 1,
-                ease: "linear",
-              }}
-              style={{
-                background:
-                  "linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent)",
-                transform: "skewX(-20deg)",
-              }}
-            />
+            {/* Shine sweep */}
+            {!submitted && (
+              <motion.div
+                className="absolute inset-0 pointer-events-none"
+                animate={{ x: ["-100%", "200%"] }}
+                transition={{ duration: 2, repeat: Infinity, repeatDelay: 1.5, ease: "linear" }}
+                style={{
+                  background: "linear-gradient(90deg, transparent, rgba(0,0,0,0.06), transparent)",
+                  transform: "skewX(-20deg)",
+                }}
+              />
+            )}
+            <FaPaperPlane className={`text-xs ${submitted ? "" : ""}`} />
+            <span>{submitted ? "Message Sent!" : "Send Message"}</span>
           </motion.button>
         </motion.div>
       </form>
-
-      {/* Decorative Elements */}
-      <div className="relative mt-8">
-        {[...Array(5)].map((_, i) => (
-          <motion.div
-            key={i}
-            animate={{
-              y: [0, -20, 0],
-              opacity: [0.3, 0.8, 0.3],
-            }}
-            transition={{
-              duration: 3,
-              repeat: Infinity,
-              delay: i * 0.5,
-            }}
-            className="absolute w-2 h-2 bg-purple-400 rounded-full"
-            style={{
-              left: `${20 + i * 15}%`,
-              bottom: -20,
-            }}
-          />
-        ))}
-      </div>
     </motion.div>
   );
 };

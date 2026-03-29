@@ -1,11 +1,16 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  font-family: "Inter",sans-serif;
+  --bg: #0F0F0F;
+  --text: #F5F5F5;
+  --accent: #A1A1AA;
+  --border: rgba(255,255,255,0.08);
+  --card: #1A1A1A;
+  font-family: 'Inter', 'Poppins', sans-serif;
 }
 
 * {
@@ -16,59 +21,100 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 100px;
+  scroll-padding-top: 90px;
 }
 
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  background-color: #0F0F0F;
+  color: #F5F5F5;
+  font-family: 'Inter', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
 
-/* Custom Scrollbar */
-::-webkit-scrollbar {
-  width: 10px;
-}
-
-::-webkit-scrollbar-track {
-  background: #0a0a0a;
-}
-
+/* ── Custom Scrollbar ─────────────────── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #0F0F0F; }
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(to bottom, #a855f7, #06b6d4);
-  border-radius: 5px;
+  background: #3f3f46;
+  border-radius: 6px;
+}
+::-webkit-scrollbar-thumb:hover { background: #A1A1AA; }
+
+/* ── Selection ───────────────────────── */
+::selection {
+  background: rgba(255,255,255,0.15);
+  color: #F5F5F5;
 }
 
-::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(to bottom, #9333ea, #0891b2);
+/* ── Subtle dot-grid background ──────── */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: radial-gradient(rgba(255,255,255,0.04) 1px, transparent 1px);
+  background-size: 32px 32px;
+  pointer-events: none;
+  z-index: 0;
 }
 
-/* Light mode styles */
-.light-mode {
-  --bg-color: #ffffff;
-  --text-color: #1a1a1a;
-  --border-color: #e5e5e5;
+/* ── Cursor glow ─────────────────────── */
+.cursor-glow {
+  position: fixed;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,255,255,0.04) 0%, transparent 70%);
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  transition: opacity 0.3s;
 }
 
-.light-mode body {
-  background-color: var(--bg-color);
-  color: var(--text-color);
+/* ── Section divider ─────────────────── */
+.section-divider {
+  border-bottom: 1px solid rgba(255,255,255,0.06);
 }
 
-/* Animations */
-@keyframes gradient-shift {
-  0%, 100% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
+/* ── Animations ──────────────────────── */
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position:  200% 0; }
 }
 
-.animate-gradient {
-  background-size: 200% 200%;
-  animation: gradient-shift 3s ease infinite;
+.shimmer-text {
+  background: linear-gradient(90deg, #F5F5F5 25%, #A1A1AA 50%, #F5F5F5 75%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 4s linear infinite;
+}
+
+/* ── Timeline line ───────────────────── */
+.timeline-line {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, #F5F5F5, #A1A1AA, transparent);
+  transform-origin: top;
+}
+
+/* ── Glassmorphism card ──────────────── */
+.glass-card {
+  background: rgba(26,26,26,0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+/* ── Hover lift ──────────────────────── */
+.hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.hover-lift:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
 }

@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Suspense } from "react";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
@@ -6,78 +7,66 @@ import { Experience } from "./components/Experience";
 import Projects from "./components/Projects";
 import { Contact } from "./components/Contact";
 import { Achievements } from "./components/Achievements";
-import ParticlesBackground from "./components/ParticlesBackground";
-import Skills from "./components/Skills";
-
-import ContactForm from "./components/ContactForm";
 import ScrollProgress from "./components/ScrollProgress";
 import Footer from "./components/Footer";
 import BackToTop from "./components/BackToTop";
+import ContactForm from "./components/ContactForm";
 
-// Loading component
 const LoadingSpinner = () => (
   <div className="flex justify-center items-center h-32">
-    <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-purple-500"></div>
+    <div className="animate-spin rounded-full h-10 w-10 border-t border-b border-white/40" />
   </div>
 );
 
 function App() {
+  // Cursor glow effect
+  useEffect(() => {
+    const glow = document.createElement("div");
+    glow.className = "cursor-glow";
+    document.body.appendChild(glow);
+
+    const move = (e) => {
+      glow.style.left = e.clientX + "px";
+      glow.style.top  = e.clientY + "px";
+    };
+    window.addEventListener("mousemove", move);
+    return () => {
+      window.removeEventListener("mousemove", move);
+      document.body.removeChild(glow);
+    };
+  }, []);
+
   return (
-    <div className="overflow-hidden text-neutral-300 antialiased selection:bg-cyan-300 selection:text-cyan-900">
+    <div
+      className="relative text-[#F5F5F5] antialiased"
+      style={{ background: "#0F0F0F" }}
+    >
       <ScrollProgress />
-      <ParticlesBackground />
       <BackToTop />
-      
-      <div className="fixed top-0 -z-10 h-full w-full">
-        <div className="absolute top-0 z-[-2] h-screen w-screen bg-neutral-950 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]"></div>
-      </div>
 
-      {/* Full Width Navbar */}
+      {/* Full-width navbar */}
       <Navbar />
-      
-      {/* Container for other sections */}
-      <div className="container mx-auto px-8">
-        {/* Hero Section */}
-        <section id="home">
-          <Hero />
-        </section>
 
-        {/* About Section */}
-        <section id="about">
-          <About />
-        </section>
-
-        {/* Technologies & Skills Section */}
-        <section id="skills">
-          <Skills />
-        </section>
-
-         <section id="experience">
-          <Experience />
-        </section>
-
-        {/* Projects Section */}
-        <section id="projects">
-          <Projects />
-        </section>
-
-        {/* Achievements Section */}
-        <section id="achievements">
-          <Achievements />
-        </section>
-
-        {/* Contact Section */}
-        <section id="contact">
-          <Contact />
-          <div className="my-20">
-            <h1 className="text-4xl text-center mb-12 bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">
-              Send Me a Message
-            </h1>
-            <Suspense fallback={<LoadingSpinner />}>
-              <ContactForm />
-            </Suspense>
-          </div>
-        </section>
+      {/* Main content container */}
+      <div className="relative z-10 container mx-auto px-6 lg:px-12">
+        <Hero />
+        <About />
+        <Projects />
+        <Experience />
+        <Achievements />
+        <Contact />
+        
+        <div className="my-12 md:my-20">
+          <h2 className="text-3xl font-light text-center mb-2 text-[#F5F5F5]">
+            Send Me a <span className="text-[#A1A1AA]">Message</span>
+          </h2>
+          <p className="text-center text-[#A1A1AA] text-sm mb-10">
+            I'll get back to you as soon as possible.
+          </p>
+          <Suspense fallback={<LoadingSpinner />}>
+            <ContactForm />
+          </Suspense>
+        </div>
       </div>
 
       <Footer />

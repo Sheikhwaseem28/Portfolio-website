@@ -1,214 +1,124 @@
 import { ABOUT_TEXT } from "../Data.js";
 import { motion } from "framer-motion";
-import { FaCode, FaLaptopCode, FaBrain, FaRocket } from "react-icons/fa";
-import { SiCplusplus, SiLeetcode } from "react-icons/si";
 
-const About = () => {
-  return (
-    <div className="border-b border-neutral-900 pb-4">
-      <motion.h1
-        whileInView={{ opacity: 1, y: 0 }}
-        initial={{ opacity: 0, y: -100 }}
-        transition={{ duration: 1.5 }}
-        className="my-20 text-center text-4xl"
+const slideLeft  = { hidden: { opacity: 0, x: -60 }, visible: { opacity: 1, x: 0, transition: { duration: 0.8, ease: "easeInOut" } } };
+const slideRight = { hidden: { opacity: 0, x:  60 }, visible: { opacity: 1, x: 0, transition: { duration: 0.8, ease: "easeInOut" } } };
+
+const codeLines = [
+  'const developer = {',
+  '  name: "Sheikh Waseem",',
+  '  role: "MERN Stack Dev",',
+  '  passion: "Problem Solving",',
+  '  dsa: "350+ Problems",',
+  '  gfg: "AIR 343",',
+  '};',
+];
+
+const About = () => (
+  <div id="about" className="section-divider py-12 md:py-24">
+    {/* Section heading */}
+    <motion.div
+      initial={{ opacity: 0, y: -30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.7 }}
+      className="text-center mb-10 md:mb-16"
+    >
+      <p className="text-xs tracking-[0.3em] text-[#A1A1AA] uppercase mb-3">Who I Am</p>
+      <h2 className="text-3xl sm:text-5xl font-bold text-[#F5F5F5]">
+        About <span className="text-[#A1A1AA] font-light">Me</span>
+      </h2>
+    </motion.div>
+
+    <div className="flex flex-col lg:flex-row gap-16 items-center">
+      {/* Left: animated code block illustration */}
+      <motion.div
+        variants={slideLeft}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        className="flex-1 flex items-center justify-center"
       >
-        About <span className="text-neutral-500">Me</span>
-      </motion.h1>
-      <div className="flex flex-wrap">
-        {/* Animated Illustration Side */}
-        <motion.div
-          whileInView={{ opacity: 1, x: 0 }}
-          initial={{ opacity: 0, x: -100 }}
-          transition={{ duration: 0.5 }}
-          className="w-full lg:w-1/2 mb-10"
-        >
-          <div className="flex items-center justify-center">
-            <div className="relative w-96 h-96">
-              {/* Central Brain/Code Icon */}
-              <motion.div
-                animate={{
-                  scale: [1, 1.1, 1],
-                  rotate: [0, 5, -5, 0],
-                }}
-                transition={{
-                  duration: 4,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
-                className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
-              >
-                <div className="relative">
-                  {/* Glowing Background */}
-                  <motion.div
-                    animate={{
-                      scale: [1, 1.3, 1],
-                      opacity: [0.3, 0.6, 0.3],
-                    }}
-                    transition={{
-                      duration: 3,
-                      repeat: Infinity,
-                    }}
-                    className="absolute inset-0 bg-gradient-to-r from-purple-500 to-cyan-500 rounded-full blur-2xl"
-                  />
-                  
-                  {/* Main Icon */}
-                  <FaBrain className="relative text-8xl text-purple-400" />
-                </div>
-              </motion.div>
-
-              {/* Orbiting Icons - C++ */}
-              <motion.div
-                animate={{ rotate: 360 }}
-                transition={{
-                  duration: 15,
-                  repeat: Infinity,
-                  ease: "linear",
-                }}
-                className="absolute inset-0"
-              >
-                <motion.div
-                  whileHover={{ scale: 1.3 }}
-                  className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
-                >
-                  <div className="bg-gradient-to-br from-blue-500 to-blue-700 p-4 rounded-xl shadow-lg">
-                    <SiCplusplus className="text-4xl text-white" />
-                  </div>
-                </motion.div>
-
-                {/* LeetCode Icon */}
-                <motion.div
-                  whileHover={{ scale: 1.3 }}
-                  className="absolute top-1/4 right-0 transform translate-x-1/2"
-                >
-                  <div className="bg-gradient-to-br from-orange-500 to-orange-700 p-4 rounded-xl shadow-lg">
-                    <SiLeetcode className="text-4xl text-white" />
-                  </div>
-                </motion.div>
-
-                {/* Code Icon */}
-                <motion.div
-                  whileHover={{ scale: 1.3 }}
-                  className="absolute bottom-1/4 right-0 transform translate-x-1/2"
-                >
-                  <div className="bg-gradient-to-br from-green-500 to-green-700 p-4 rounded-xl shadow-lg">
-                    <FaCode className="text-4xl text-white" />
-                  </div>
-                </motion.div>
-
-                {/* Laptop Icon */}
-                <motion.div
-                  whileHover={{ scale: 1.3 }}
-                  className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2"
-                >
-                  <div className="bg-gradient-to-br from-cyan-500 to-cyan-700 p-4 rounded-xl shadow-lg">
-                    <FaLaptopCode className="text-4xl text-white" />
-                  </div>
-                </motion.div>
-
-                {/* Rocket Icon */}
-                <motion.div
-                  whileHover={{ scale: 1.3 }}
-                  className="absolute bottom-1/4 left-0 transform -translate-x-1/2"
-                >
-                  <div className="bg-gradient-to-br from-pink-500 to-pink-700 p-4 rounded-xl shadow-lg">
-                    <FaRocket className="text-4xl text-white" />
-                  </div>
-                </motion.div>
-
-                {/* Algorithm Icon */}
-                <motion.div
-                  whileHover={{ scale: 1.3 }}
-                  className="absolute top-1/4 left-0 transform -translate-x-1/2"
-                >
-                  <div className="bg-gradient-to-br from-purple-500 to-purple-700 p-4 rounded-xl shadow-lg">
-                    <FaBrain className="text-4xl text-white" />
-                  </div>
-                </motion.div>
-              </motion.div>
-
-              {/* Connecting Lines */}
-              <svg className="absolute inset-0 w-full h-full">
-                <motion.circle
-                  cx="50%"
-                  cy="50%"
-                  r="120"
-                  stroke="url(#gradient1)"
-                  strokeWidth="2"
-                  fill="none"
-                  strokeDasharray="10 5"
-                  animate={{ rotate: 360 }}
-                  transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                />
-                <motion.circle
-                  cx="50%"
-                  cy="50%"
-                  r="150"
-                  stroke="url(#gradient2)"
-                  strokeWidth="1"
-                  fill="none"
-                  strokeDasharray="5 10"
-                  animate={{ rotate: -360 }}
-                  transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-                />
-                <defs>
-                  <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stopColor="#a855f7" stopOpacity="0.5" />
-                    <stop offset="100%" stopColor="#06b6d4" stopOpacity="0.5" />
-                  </linearGradient>
-                  <linearGradient id="gradient2" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stopColor="#06b6d4" stopOpacity="0.3" />
-                    <stop offset="100%" stopColor="#ec4899" stopOpacity="0.3" />
-                  </linearGradient>
-                </defs>
-              </svg>
-
-              {/* Floating Particles */}
-              {[...Array(8)].map((_, i) => (
-                <motion.div
+        <div className="relative w-full max-w-sm">
+          {/* Code window chrome */}
+          <div className="glass-card rounded-2xl overflow-hidden shadow-2xl">
+            {/* Top bar */}
+            <div className="flex items-center gap-2 px-4 py-3 border-b border-white/[0.06]">
+              <span className="w-3 h-3 rounded-full bg-[#3f3f46]" />
+              <span className="w-3 h-3 rounded-full bg-[#3f3f46]" />
+              <span className="w-3 h-3 rounded-full bg-[#3f3f46]" />
+              <span className="ml-4 text-xs text-[#A1A1AA] font-mono">about.js</span>
+            </div>
+            {/* Code body */}
+            <div className="p-6 font-mono text-sm space-y-1">
+              {codeLines.map((line, i) => (
+                <motion.p
                   key={i}
-                  animate={{
-                    y: [0, -30, 0],
-                    x: [0, Math.sin(i) * 20, 0],
-                    opacity: [0.3, 1, 0.3],
-                  }}
-                  transition={{
-                    duration: 3 + i * 0.3,
-                    repeat: Infinity,
-                    delay: i * 0.2,
-                  }}
-                  className="absolute w-2 h-2 rounded-full"
-                  style={{
-                    background: i % 2 === 0 ? "#a855f7" : "#06b6d4",
-                    top: `${20 + (i % 4) * 20}%`,
-                    left: `${20 + (i % 4) * 20}%`,
-                  }}
-                />
+                  initial={{ opacity: 0, x: -10 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.1 + i * 0.1, duration: 0.4 }}
+                  className={`${
+                    i === 0 || i === codeLines.length - 1
+                      ? "text-[#F5F5F5]"
+                      : "text-[#A1A1AA]"
+                  } whitespace-pre`}
+                >
+                  {line}
+                </motion.p>
               ))}
-
-             
             </div>
           </div>
-        </motion.div>
 
-        {/* Text Side */}
-        <div className="w-full lg:w-1/2">
-          <div className="flex justify-center lg:justify-start">
-            <motion.p
-              whileInView={{ opacity: 1, x: 0 }}
-              initial={{ opacity: 0, x: 100 }}
-              transition={{ duration: 0.5 }}
-              className="my-2 max-w-2xl py-16 text-lg leading-relaxed"
-            >
-              {ABOUT_TEXT}
-            </motion.p>
-          </div>
-          
+          {/* Floating accent badge */}
+          <motion.div
+            animate={{ y: [0, -8, 0] }}
+            transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute -bottom-5 -right-5 glass-card rounded-xl px-4 py-3 shadow-xl"
+          >
+            <p className="text-xs text-[#A1A1AA]">Open to work</p>
+            <p className="text-sm font-semibold text-[#F5F5F5]">Available Now</p>
+          </motion.div>
         </div>
-        
-      </div>
-      
+      </motion.div>
+
+      {/* Right: text block */}
+      <motion.div
+        variants={slideRight}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        className="flex-1"
+      >
+        <p className="text-[#A1A1AA] leading-relaxed text-sm sm:text-base mb-8">
+          {ABOUT_TEXT}
+        </p>
+
+        {/* Quick traits */}
+        <div className="grid grid-cols-2 gap-3">
+          {[
+            { label: "DSA Problems",    value: "350+" },
+            { label: "GFG Rank",        value: "AIR 343" },
+            { label: "Projects Built",  value: "15+" },
+            { label: "Availability",    value: "Immediate" },
+          ].map((item, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 + i * 0.1 }}
+              whileHover={{ scale: 1.03 }}
+              className="glass-card rounded-xl p-4"
+            >
+              <p className="text-xl font-bold text-[#F5F5F5]">{item.value}</p>
+              <p className="text-xs text-[#A1A1AA] mt-1">{item.label}</p>
+            </motion.div>
+          ))}
+        </div>
+      </motion.div>
     </div>
-  );
-};
+  </div>
+);
 
 export default About;

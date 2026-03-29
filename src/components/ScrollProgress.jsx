@@ -1,13 +1,26 @@
-import { motion, useScroll } from "framer-motion";
+import { motion } from "framer-motion";
+import { useEffect } from "react";
 
 const ScrollProgress = () => {
-  const { scrollYProgress } = useScroll();
+  useEffect(() => {
+    const bar = document.getElementById("scroll-progress-bar");
+    const onScroll = () => {
+      const scrolled =
+        (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
+      if (bar) bar.style.width = scrolled + "%";
+    };
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
-    <motion.div
-      style={{ scaleX: scrollYProgress }}
-      className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-purple-500 to-cyan-500 origin-left z-50"
-    />
+    <div className="fixed top-0 left-0 right-0 h-[2px] z-[999] bg-white/5">
+      <div
+        id="scroll-progress-bar"
+        className="h-full bg-[#F5F5F5] transition-all duration-100"
+        style={{ width: "0%" }}
+      />
+    </div>
   );
 };
 

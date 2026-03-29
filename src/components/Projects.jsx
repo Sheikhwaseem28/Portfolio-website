@@ -2,201 +2,141 @@ import { PROJECTS } from "../Data.js";
 import { motion } from "framer-motion";
 import { FaGithub, FaExternalLinkAlt, FaStar } from "react-icons/fa";
 
-const Projects = () => {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.3,
-      },
-    },
-  };
+const containerVariants = {
+  hidden:  { opacity: 0 },
+  visible: { opacity: 1, transition: { staggerChildren: 0.15 } },
+};
 
-  const cardVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.5,
-      },
-    },
-  };
+const cardVariants = {
+  hidden:  { opacity: 0, y: 50 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: "easeInOut" } },
+};
 
-  return (
-    <div className="border-b border-neutral-900 pb-20">
-      <motion.h1
-        whileInView={{ opacity: 1, y: 0 }}
-        initial={{ opacity: 0, y: -100 }}
-        transition={{ duration: 0.5 }}
-        className="my-20 text-center text-4xl"
-      >
-        <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-cyan-400">
-          Projects
-        </span>
-      </motion.h1>
-      <motion.div
-        variants={containerVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.2 }}
-        className="space-y-16 max-w-6xl mx-auto px-4"
-      >
-        {PROJECTS.map((project, index) => (
-          <motion.div
-            key={index}
-            variants={cardVariants}
-            viewport={{ once: true, amount: 0.3 }}
-            className="group relative"
-          >
-            <motion.div
-              whileHover={{
-                y: -5,
-                transition: { duration: 0.3 },
-              }}
-              className="flex flex-col lg:flex-row gap-6 bg-neutral-900/30 backdrop-blur-sm rounded-2xl border border-neutral-800 overflow-hidden hover:border-purple-500/50 transition-all duration-300 p-6"
-            >
-              {/* Project Image */}
-              <div className="w-full lg:w-96 flex-shrink-0">
-                <motion.div
-                  className="relative overflow-hidden rounded-xl h-56 lg:h-full border-2 border-neutral-700"
-                  whileHover={{ scale: 1.02 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-neutral-950 via-neutral-950/50 to-transparent opacity-70" />
+const Projects = () => (
+  <div id="projects" className="section-divider py-12 md:py-24">
+    {/* Heading */}
+    <motion.div
+      initial={{ opacity: 0, y: -30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.7 }}
+      className="text-center mb-10 md:mb-16"
+    >
+      <p className="text-xs tracking-[0.3em] text-[#A1A1AA] uppercase mb-3">My Work</p>
+      <h2 className="text-3xl sm:text-5xl font-bold text-[#F5F5F5]">
+        Featured <span className="text-[#A1A1AA] font-light">Projects</span>
+      </h2>
+    </motion.div>
 
-                  <motion.div
-                    initial={{ opacity: 0, y: -20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    animate={{ y: [0, -5, 0] }}
-                    transition={{
-                      y: { duration: 2, repeat: Infinity, ease: "easeInOut" },
-                      opacity: { duration: 0.5 },
-                    }}
-                    className="absolute top-3 right-3 bg-gradient-to-r from-purple-500 to-cyan-500 text-white text-xs font-bold px-3 py-1 rounded-full flex items-center gap-1"
-                  >
-                    <FaStar />
-                    Featured
-                  </motion.div>
-                </motion.div>
+    <motion.div
+      variants={containerVariants}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.1 }}
+      className="space-y-10 max-w-5xl mx-auto"
+    >
+      {PROJECTS.map((project, index) => (
+        <motion.div
+          key={index}
+          variants={cardVariants}
+          whileHover={{ y: -6, transition: { duration: 0.3 } }}
+          className="glass-card rounded-2xl overflow-hidden hover:border-white/20 transition-all duration-300 group"
+        >
+          <div className="flex flex-col lg:flex-row">
+            {/* Image */}
+            <div className="w-full lg:w-80 flex-shrink-0 overflow-hidden relative">
+              <motion.img
+                src={project.image}
+                alt={project.title}
+                className="w-full h-52 lg:h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              {/* Overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0F0F0F] via-[#0F0F0F]/50 to-transparent lg:bg-gradient-to-r" />
+              {/* Featured badge */}
+              <div className="absolute top-3 right-3 flex items-center gap-1 bg-white/10 backdrop-blur rounded-full px-3 py-1 text-xs text-[#F5F5F5] border border-white/10">
+                <FaStar className="text-[10px] text-[#A1A1AA]" />
+                Featured
               </div>
+            </div>
 
-              {/* Project Details */}
-              <div className="flex-1 flex flex-col min-w-0">
-                <motion.h3
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5 }}
-                  className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-cyan-400 mb-3"
-                >
-                  {project.title}
-                </motion.h3>
+            {/* Content */}
+            <div className="flex-1 p-6 flex flex-col">
+              {/* Title */}
+              <h3 className="text-xl font-semibold text-[#F5F5F5] mb-2 leading-snug">
+                {project.title}
+              </h3>
 
-                {/* Highlights */}
-                {project.highlights && (
-                  <motion.div
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: 0.1 }}
-                    className="flex flex-wrap gap-2 mb-3"
-                  >
-                    {project.highlights.map((highlight, i) => (
-                      <span
-                        key={i}
-                        className="text-xs bg-gradient-to-r from-purple-500/20 to-cyan-500/20 text-purple-300 px-2 py-1 rounded-full border border-purple-500/30"
-                      >
-                        {highlight}
-                      </span>
-                    ))}
-                  </motion.div>
-                )}
-
-                {/* Description - Show exactly as in data */}
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: 0.2 }}
-                  className="text-sm mb-4 flex-grow"
-                >
-                  <div className="whitespace-pre-line text-neutral-300 leading-relaxed">
-                    {project.description}
-                  </div>
-                </motion.div>
-
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {project.technologies.map((tech, techIndex) => (
-                    <motion.span
-                      key={techIndex}
-                      initial={{ opacity: 0, scale: 0 }}
-                      whileInView={{ opacity: 1, scale: 1 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: 0.3 + techIndex * 0.1 }}
-                      whileHover={{ scale: 1.1, y: -2 }}
-                      className="px-3 py-1 text-xs bg-neutral-800/50 rounded-full text-purple-400 border border-neutral-700 hover:border-purple-500 transition-all cursor-default"
+              {/* Highlights */}
+              {project.highlights && (
+                <div className="flex flex-wrap gap-1.5 mb-3">
+                  {project.highlights.map((h, i) => (
+                    <span
+                      key={i}
+                      className="text-[10px] border border-white/10 text-[#A1A1AA] px-2 py-0.5 rounded-full"
                     >
-                      {tech}
-                    </motion.span>
+                      {h}
+                    </span>
                   ))}
                 </div>
+              )}
 
-                {/* Buttons - ALWAYS VISIBLE */}
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: 0.4 }}
-                  className="flex items-center gap-3 mt-2"
-                >
-                  {project.link && (
-                    <motion.a
-                      href={project.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                      className="flex items-center justify-center gap-2 bg-purple-500 text-white px-4 py-2 rounded-lg hover:bg-purple-600 transition-colors shadow-lg text-sm font-semibold flex-1"
-                    >
-                      <FaGithub className="text-lg" />
-                      <span>View Code</span>
-                    </motion.a>
-                  )}
-                  
-                  {project.liveLink && (
-                    <motion.a
-                      href={project.liveLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                      className="flex items-center justify-center gap-2 bg-cyan-500 text-white px-4 py-2 rounded-lg hover:bg-cyan-600 transition-colors shadow-lg text-sm font-semibold flex-1"
-                    >
-                      <FaExternalLinkAlt className="text-base" />
-                      <span>Live Demo</span>
-                    </motion.a>
-                  )}
-
-                </motion.div>
+              {/* Description */}
+              <div className="whitespace-pre-line text-[#A1A1AA] text-sm sm:text-base leading-relaxed flex-1 mb-4">
+                {project.description}
               </div>
 
-              {/* Hover effects */}
-              <motion.div className="absolute -top-10 -right-10 w-40 h-40 bg-purple-500/10 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              <motion.div className="absolute -bottom-10 -left-10 w-40 h-40 bg-cyan-500/10 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-            </motion.div>
-          </motion.div>
-        ))}
-      </motion.div>
-    </div>
-  );
-};
+              {/* Tech chips */}
+              <div className="flex flex-wrap gap-1.5 mb-5">
+                {project.technologies.map((tech, i) => (
+                  <motion.span
+                    key={i}
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.05 * i }}
+                    whileHover={{ scale: 1.1, y: -1 }}
+                    className="text-xs bg-white/5 border border-white/10 text-[#A1A1AA] hover:text-[#F5F5F5] hover:border-white/25 px-2.5 py-1 rounded-full transition-all cursor-default"
+                  >
+                    {tech}
+                  </motion.span>
+                ))}
+              </div>
+
+              {/* Links */}
+              <div className="flex gap-3">
+                {project.link && (
+                  <motion.a
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    whileHover={{ scale: 1.04 }}
+                    whileTap={{ scale: 0.97 }}
+                    className="flex items-center gap-2 border border-white/15 text-[#F5F5F5] text-xs font-medium px-4 py-2 rounded-full hover:bg-white/5 hover:border-white/30 transition-all"
+                  >
+                    <FaGithub />
+                    View Code
+                  </motion.a>
+                )}
+                {project.liveLink && (
+                  <motion.a
+                    href={project.liveLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    whileHover={{ scale: 1.04 }}
+                    whileTap={{ scale: 0.97 }}
+                    className="flex items-center gap-2 bg-[#F5F5F5] text-[#0F0F0F] text-xs font-semibold px-4 py-2 rounded-full hover:bg-white transition-all"
+                  >
+                    <FaExternalLinkAlt />
+                    Live Demo
+                  </motion.a>
+                )}
+              </div>
+            </div>
+          </div>
+        </motion.div>
+      ))}
+    </motion.div>
+  </div>
+);
 
 export default Projects;

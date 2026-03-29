@@ -2,195 +2,139 @@ import { EXPERIENCES } from "../Data.js";
 import { motion } from "framer-motion";
 import { FaBriefcase, FaCalendarAlt } from "react-icons/fa";
 
-export const Experience = () => {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.3,
-      },
-    },
-  };
+const containerVariants = {
+  hidden:  { opacity: 0 },
+  visible: { opacity: 1, transition: { staggerChildren: 0.25 } },
+};
 
-  const itemVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.6,
-      },
-    },
-  };
+const itemVariants = {
+  hidden:  { opacity: 0, y: 50 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: "easeInOut" } },
+};
 
-  return (
-    <div className="border-b border-neutral-900 pb-20">
-      <motion.h1
-        whileInView={{ opacity: 1, y: 0 }}
-        initial={{ opacity: 0, y: -100 }}
-        transition={{ duration: 0.5 }}
-        className="my-20 text-center text-4xl"
-      >
-        <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-cyan-400">
-          Professional Experience
-        </span>
-      </motion.h1>
+export const Experience = () => (
+  <div id="experience" className="section-divider py-12 md:py-24">
+    {/* Heading */}
+    <motion.div
+      initial={{ opacity: 0, y: -30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.7 }}
+      className="text-center mb-10 md:mb-16"
+    >
+      <p className="text-xs tracking-[0.3em] text-[#A1A1AA] uppercase mb-3">Career</p>
+      <h2 className="text-3xl sm:text-5xl font-bold text-[#F5F5F5]">
+        Professional <span className="text-[#A1A1AA] font-light">Experience</span>
+      </h2>
+    </motion.div>
 
-      <motion.div
-        variants={containerVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-        className="max-w-5xl mx-auto px-4"
-      >
-        {/* Timeline Line */}
-        <div className="relative">
-          <div className="absolute left-0 lg:left-1/4 top-0 bottom-0 w-0.5 bg-gradient-to-b from-purple-500 via-cyan-500 to-purple-500 hidden md:block" />
+    <div className="max-w-4xl mx-auto">
+      {/* Animated vertical line */}
+      <div className="relative pl-8 md:pl-12">
+        <motion.div
+          initial={{ scaleY: 0 }}
+          whileInView={{ scaleY: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1.2, ease: "easeInOut" }}
+          className="absolute left-0 md:left-4 top-0 bottom-0 w-px bg-gradient-to-b from-[#F5F5F5] via-[#A1A1AA] to-transparent origin-top"
+        />
 
-          {EXPERIENCES.map((experience, index) => (
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="space-y-12"
+        >
+          {EXPERIENCES.map((exp, index) => (
             <motion.div
               key={index}
               variants={itemVariants}
-              className="mb-12 group"
+              className="relative group"
             >
-              <div className="flex flex-col lg:flex-row gap-8 relative">
-                {/* Year Section */}
-                <motion.div
-                  whileHover={{ scale: 1.05 }}
-                  className="w-full lg:w-1/4 relative"
-                >
-                  <div className="bg-gradient-to-br from-purple-500/20 to-cyan-500/20 backdrop-blur-sm border border-purple-500/30 rounded-xl p-4 hover:border-cyan-500/50 transition-all">
-                    <div className="flex items-center gap-2 text-cyan-400">
-                      <FaCalendarAlt className="text-lg" />
-                      <p className="font-semibold">{experience.year}</p>
+              {/* Timeline dot */}
+              <motion.div
+                initial={{ scale: 0 }}
+                whileInView={{ scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ type: "spring", stiffness: 300, delay: 0.2 }}
+                className="absolute -left-8 md:-left-[3.25rem] top-6 w-4 h-4 rounded-full bg-[#F5F5F5] border-4 border-[#0F0F0F] shadow-lg"
+              />
+
+              {/* Card */}
+              <motion.div
+                whileHover={{ x: 4, transition: { duration: 0.2 } }}
+                className="glass-card rounded-2xl p-6 hover:border-white/20 transition-colors duration-300"
+              >
+                {/* Header */}
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-4">
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center flex-shrink-0">
+                      <FaBriefcase className="text-[#A1A1AA] text-sm" />
+                    </div>
+                    <div>
+                      <h3 className="text-base font-semibold text-[#F5F5F5] leading-tight">{exp.role}</h3>
+                      <p className="text-sm text-[#A1A1AA]">{exp.company}</p>
                     </div>
                   </div>
+                  <div className="flex items-center gap-1.5 text-xs text-[#A1A1AA] bg-white/5 border border-white/10 rounded-full px-3 py-1 self-start sm:self-auto">
+                    <FaCalendarAlt className="text-[10px]" />
+                    {exp.year}
+                  </div>
+                </div>
 
-                  {/* Timeline Dot */}
-                  <motion.div
-                    initial={{ scale: 0 }}
-                    whileInView={{ scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ type: "spring", stiffness: 200, delay: 0.2 }}
-                    className="hidden lg:block absolute -right-3 top-1/2 transform -translate-y-1/2"
-                  >
-                    <div className="relative">
-                      <motion.div
-                        animate={{
-                          scale: [1, 1.5, 1],
-                          opacity: [0.5, 1, 0.5],
-                        }}
-                        transition={{
-                          duration: 2,
-                          repeat: Infinity,
-                          ease: "easeInOut",
-                        }}
-                        className="absolute inset-0 bg-gradient-to-r from-purple-500 to-cyan-500 rounded-full blur-md"
-                      />
-                      <div className="relative w-6 h-6 bg-gradient-to-br from-purple-500 to-cyan-500 rounded-full border-4 border-neutral-950" />
-                    </div>
-                  </motion.div>
-                </motion.div>
+                {/* Description */}
+                <div className="whitespace-pre-line text-[#A1A1AA] text-sm sm:text-base leading-relaxed mb-5">
+                  {exp.description}
+                </div>
 
-                {/* Content Section */}
-                <motion.div
-                  whileHover={{ x: 5 }}
-                  transition={{ duration: 0.3 }}
-                  className="w-full lg:w-3/4"
-                >
-                  <div className="bg-neutral-900/40 backdrop-blur-sm border border-neutral-800 rounded-xl p-6 hover:border-purple-500/50 transition-all duration-300 group-hover:shadow-lg group-hover:shadow-purple-500/10">
-                    {/* Role and Company */}
-                    <div className="flex items-start gap-3 mb-4">
-                      <motion.div
-                        whileHover={{ rotate: 360 }}
-                        transition={{ duration: 0.5 }}
-                        className="flex-shrink-0"
-                      >
-                        <div className="bg-gradient-to-br from-purple-500 to-cyan-500 p-3 rounded-lg">
-                          <FaBriefcase className="text-2xl text-white" />
-                        </div>
-                      </motion.div>
-
-                      <div className="flex-1">
-                        <h6 className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-cyan-400 mb-1">
-                          {experience.role}
-                        </h6>
-                        <p className="text-neutral-300 font-semibold">
-                          {experience.company}
-                        </p>
-                      </div>
-                    </div>
-
-                    {/* Description - Preserving exact formatting */}
-                    <div className="mb-6">
-                      <div className="whitespace-pre-line text-neutral-300 leading-relaxed">
-                        {experience.description}
-                      </div>
-                    </div>
-
-                    {/* Technologies */}
-                    <div className="flex flex-wrap gap-2">
-                      {experience.technologies.map((tech, techIndex) => (
-                        <motion.span
-                          key={techIndex}
-                          initial={{ opacity: 0, scale: 0 }}
-                          whileInView={{ opacity: 1, scale: 1 }}
-                          viewport={{ once: true }}
-                          transition={{
-                            delay: techIndex * 0.1,
-                            type: "spring",
-                            stiffness: 200,
-                          }}
-                          whileHover={{ scale: 1.1, y: -2 }}
-                          className="px-3 py-1 text-sm bg-gradient-to-r from-purple-500/20 to-cyan-500/20 rounded-full text-purple-300 border border-purple-500/30 hover:border-cyan-500/50 transition-all cursor-default"
-                        >
-                          {tech}
-                        </motion.span>
-                      ))}
-                    </div>
-
-                    {/* Animated Bottom Line */}
-                    <motion.div
-                      initial={{ width: 0 }}
-                      whileInView={{ width: "100%" }}
+                {/* Tech chips */}
+                <div className="flex flex-wrap gap-1.5">
+                  {exp.technologies.map((tech, i) => (
+                    <motion.span
+                      key={i}
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
                       viewport={{ once: true }}
-                      transition={{ duration: 0.8, delay: 0.3 }}
-                      className="h-0.5 mt-6 bg-gradient-to-r from-purple-500 to-cyan-500 rounded-full"
-                    />
-                  </div>
-                </motion.div>
-              </div>
+                      transition={{ delay: i * 0.05 }}
+                      whileHover={{ scale: 1.08, y: -1 }}
+                      className="text-xs bg-white/5 border border-white/10 text-[#A1A1AA] hover:text-[#F5F5F5] hover:border-white/25 px-2.5 py-1 rounded-full transition-all cursor-default"
+                    >
+                      {tech}
+                    </motion.span>
+                  ))}
+                </div>
+
+                {/* Bottom animate line */}
+                <motion.div
+                  initial={{ width: 0 }}
+                  whileInView={{ width: "100%" }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.8, delay: 0.3 }}
+                  className="h-px mt-5 bg-gradient-to-r from-[#F5F5F5]/30 to-transparent rounded-full"
+                />
+              </motion.div>
             </motion.div>
           ))}
-        </div>
-      </motion.div>
+        </motion.div>
+      </div>
 
-      {/* Summary Stats */}
+      {/* Summary badge */}
       <motion.div
-        initial={{ opacity: 0, y: 30 }}
+        initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.8, delay: 0.5 }}
+        transition={{ duration: 0.6, delay: 0.5 }}
         className="flex justify-center mt-12"
       >
         <motion.div
-          whileHover={{ scale: 1.05 }}
-          className="bg-gradient-to-r from-purple-500 to-cyan-500 px-8 py-4 rounded-full shadow-xl"
+          whileHover={{ scale: 1.04 }}
+          className="glass-card rounded-full px-8 py-3 flex items-center gap-3"
         >
-          <p className="text-white font-bold text-lg">
-            <motion.span
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              className="text-3xl"
-            >
-              {EXPERIENCES.length}+
-            </motion.span>{" "}
-            Professional Experiences
-          </p>
+          <span className="text-3xl font-bold text-[#F5F5F5]">{EXPERIENCES.length}+</span>
+          <span className="text-[#A1A1AA] text-sm">Professional Experiences</span>
         </motion.div>
       </motion.div>
     </div>
-  );
-};
+  </div>
+);
