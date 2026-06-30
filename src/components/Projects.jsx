@@ -35,106 +35,147 @@ const Projects = () => (
       viewport={{ once: true, amount: 0.1 }}
       className="space-y-10 max-w-5xl mx-auto"
     >
-      {PROJECTS.map((project, index) => (
-        <motion.div
-          key={index}
-          variants={cardVariants}
-          whileHover={{ y: -6, transition: { duration: 0.3 } }}
-          className="glass-card rounded-2xl overflow-hidden hover:border-white/20 transition-all duration-300 group"
-        >
-          <div className="flex flex-col lg:flex-row">
-            {/* Image */}
-            <div className="w-full lg:w-80 flex-shrink-0 overflow-hidden relative">
-              <motion.img
-                src={project.image}
-                alt={project.title}
-                className="w-full h-52 lg:h-full object-cover transition-transform duration-500 group-hover:scale-105"
-              />
-              {/* Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0F0F0F] via-[#0F0F0F]/50 to-transparent lg:bg-gradient-to-r" />
-              {/* Featured badge */}
-              <div className="absolute top-3 right-3 flex items-center gap-1 bg-white/10 backdrop-blur rounded-full px-3 py-1 text-xs text-[#F5F5F5] border border-white/10">
-                <FaStar className="text-[10px] text-[#A1A1AA]" />
-                Featured
+      {PROJECTS.map((project, index) => {
+        // Split description by newlines and clean up bullet points
+        const points = project.description
+          ? project.description
+              .split("\n")
+              .map((p) => p.trim())
+              .filter((p) => p.length > 0)
+              .map((p) => p.replace(/^[•\s\-*]+/, ""))
+          : [];
+
+        return (
+          <motion.div
+            key={index}
+            variants={cardVariants}
+            whileHover={{ y: -6, transition: { duration: 0.3 } }}
+            className="glass-card rounded-2xl overflow-hidden hover:border-white/20 transition-all duration-300 group relative"
+          >
+            {/* Ambient Background Glow on Hover */}
+            <div className="absolute -top-24 -right-24 w-48 h-48 bg-white/5 rounded-full blur-3xl pointer-events-none group-hover:bg-white/10 transition-all duration-500" />
+            <div className="absolute -bottom-24 -left-24 w-48 h-48 bg-white/0 rounded-full blur-3xl pointer-events-none group-hover:bg-white/5 transition-all duration-500" />
+
+            {/* Top terminal-style window dot decoration */}
+            <div className="flex items-center justify-between px-6 py-3 border-b border-white/5 bg-white/[0.01]">
+              <div className="flex items-center gap-1.5">
+                <span className="w-2 h-2 rounded-full bg-white/20 group-hover:bg-[#EF4444]/60 transition-colors duration-300" />
+                <span className="w-2 h-2 rounded-full bg-white/20 group-hover:bg-[#F59E0B]/60 transition-colors duration-300" />
+                <span className="w-2 h-2 rounded-full bg-white/20 group-hover:bg-[#10B981]/60 transition-colors duration-300" />
+              </div>
+              <div className="text-[10px] font-mono tracking-wider text-[#A1A1AA]">
+                project_{index + 1}.config
               </div>
             </div>
 
-            {/* Content */}
-            <div className="flex-1 p-6 flex flex-col">
-              {/* Title */}
-              <h3 className="text-xl font-semibold text-[#F5F5F5] mb-2 leading-snug">
-                {project.title}
-              </h3>
-
-              {/* Highlights */}
-              {project.highlights && (
-                <div className="flex flex-wrap gap-1.5 mb-3">
-                  {project.highlights.map((h, i) => (
-                    <span
-                      key={i}
-                      className="text-[10px] border border-white/10 text-[#A1A1AA] px-2 py-0.5 rounded-full"
-                    >
-                      {h}
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 p-6 sm:p-8 relative z-10">
+              {/* Left Column: Info & Action */}
+              <div className="lg:col-span-5 flex flex-col justify-between">
+                <div>
+                  {/* Category / Star Badge */}
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="text-[10px] tracking-[0.2em] font-mono text-[#A1A1AA] uppercase">
+                      Featured Work
                     </span>
+                    <div className="flex items-center gap-1 bg-white/5 backdrop-blur rounded-full px-2.5 py-0.5 text-[10px] text-[#F5F5F5] border border-white/10 shadow-sm">
+                      <FaStar className="text-[8px] text-[#A1A1AA]" />
+                      Featured
+                    </div>
+                  </div>
+
+                  {/* Title */}
+                  <h3 className="text-xl sm:text-2xl font-bold text-[#F5F5F5] mb-4 group-hover:text-white transition-colors duration-300 leading-snug">
+                    {project.title}
+                  </h3>
+
+                  {/* Technologies */}
+                  <div className="flex flex-wrap gap-1.5 mb-6">
+                    {project.technologies.map((tech, i) => (
+                      <motion.span
+                        key={i}
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.03 * i }}
+                        whileHover={{ scale: 1.05, y: -1 }}
+                        className="text-[10px] sm:text-xs bg-white/5 border border-white/10 text-[#A1A1AA] hover:text-[#F5F5F5] hover:border-white/25 px-2.5 py-1 rounded-md transition-all cursor-default"
+                      >
+                        {tech}
+                      </motion.span>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Actions / Links */}
+                <div className="flex flex-wrap gap-3 mt-4">
+                  {project.link && (
+                    <motion.a
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      whileHover={{ scale: 1.04 }}
+                      whileTap={{ scale: 0.97 }}
+                      className="flex items-center gap-2 border border-white/15 text-[#F5F5F5] text-xs font-medium px-4 py-2 rounded-full hover:bg-white/5 hover:border-white/30 transition-all"
+                    >
+                      <FaGithub className="text-sm" />
+                      View Code
+                    </motion.a>
+                  )}
+                  {project.liveLink && (
+                    <motion.a
+                      href={project.liveLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      whileHover={{ scale: 1.04 }}
+                      whileTap={{ scale: 0.97 }}
+                      className="flex items-center gap-2 bg-[#F5F5F5] text-[#0F0F0F] text-xs font-semibold px-4 py-2 rounded-full hover:bg-white transition-all shadow-md hover:shadow-lg"
+                    >
+                      <FaExternalLinkAlt className="text-xs" />
+                      Live Demo
+                    </motion.a>
+                  )}
+                </div>
+              </div>
+
+              {/* Right Column: Description & Highlights */}
+              <div className="lg:col-span-7 lg:border-l lg:border-white/5 lg:pl-8 flex flex-col justify-between gap-6">
+                {/* Description bullet list */}
+                <div className="space-y-3">
+                  {points.map((point, idx) => (
+                    <div
+                      key={idx}
+                      className="flex items-start gap-3 text-sm sm:text-[15px] text-[#A1A1AA] leading-relaxed group-hover:text-[#D1D5DB] transition-colors duration-300"
+                    >
+                      <span className="w-1.5 h-1.5 rounded-full bg-white/30 mt-2 flex-shrink-0 group-hover:bg-white/50 transition-colors duration-300" />
+                      <span>{point}</span>
+                    </div>
                   ))}
                 </div>
-              )}
 
-              {/* Description */}
-              <div className="whitespace-pre-line text-[#A1A1AA] text-sm sm:text-base leading-relaxed flex-1 mb-4">
-                {project.description}
-              </div>
-
-              {/* Tech chips */}
-              <div className="flex flex-wrap gap-1.5 mb-5">
-                {project.technologies.map((tech, i) => (
-                  <motion.span
-                    key={i}
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: 0.05 * i }}
-                    whileHover={{ scale: 1.1, y: -1 }}
-                    className="text-xs bg-white/5 border border-white/10 text-[#A1A1AA] hover:text-[#F5F5F5] hover:border-white/25 px-2.5 py-1 rounded-full transition-all cursor-default"
-                  >
-                    {tech}
-                  </motion.span>
-                ))}
-              </div>
-
-              {/* Links */}
-              <div className="flex gap-3">
-                {project.link && (
-                  <motion.a
-                    href={project.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    whileHover={{ scale: 1.04 }}
-                    whileTap={{ scale: 0.97 }}
-                    className="flex items-center gap-2 border border-white/15 text-[#F5F5F5] text-xs font-medium px-4 py-2 rounded-full hover:bg-white/5 hover:border-white/30 transition-all"
-                  >
-                    <FaGithub />
-                    View Code
-                  </motion.a>
-                )}
-                {project.liveLink && (
-                  <motion.a
-                    href={project.liveLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    whileHover={{ scale: 1.04 }}
-                    whileTap={{ scale: 0.97 }}
-                    className="flex items-center gap-2 bg-[#F5F5F5] text-[#0F0F0F] text-xs font-semibold px-4 py-2 rounded-full hover:bg-white transition-all"
-                  >
-                    <FaExternalLinkAlt />
-                    Live Demo
-                  </motion.a>
+                {/* Feature Highlights section */}
+                {project.highlights && (
+                  <div className="border-t border-white/5 pt-5">
+                    <h4 className="text-[10px] font-mono tracking-wider uppercase text-white/40 mb-3">
+                      Key Highlights
+                    </h4>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-2">
+                      {project.highlights.map((h, i) => (
+                        <div
+                          key={i}
+                          className="flex items-start gap-2 text-xs text-[#A1A1AA] leading-tight group-hover:text-[#D1D5DB] transition-colors duration-300"
+                        >
+                          <span className="text-[#A1A1AA]/50 group-hover:text-white/60 transition-colors duration-300">✦</span>
+                          <span>{h}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
                 )}
               </div>
             </div>
-          </div>
-        </motion.div>
-      ))}
+          </motion.div>
+        );
+      })}
     </motion.div>
   </div>
 );

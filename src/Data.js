@@ -17,12 +17,12 @@ export const ABOUT_TEXT = `Software Developer with competitive programming excel
 // ============================================
 export const EXPERIENCES = [
   {
-    year: "Aug 2025 - Present",
+    year: "Aug 2025 - Feb 2026",
     role: "Software Developer Intern",
     company: "Dutta Integrated Services",
-    description: `• Architected and deployed a secure role-based web application for an experimental equipment client, implementing granular access controls (RBAC) that restricted employee data access by assignment while complex business workflows and quotation lifecycles.
+    description: `• Developed an analytics feature to monitor customer behavior and identify order summary, enabling data-driven retention strategies that improved customer retention by 20%.
 
-• Engineered a month-wise order tracking and analytics platform using the MERN stack that analyzed behavioral patterns to identify inactive customers and segment users by churn risk, enabling targeted retention campaigns that increased customer retention by 10%.`,
+• Engineered an SMTP notification service for an insurance claim management module within a hospital HMS, applying transaction management principles to reduce manual reconciliation overhead by 25% and ensure reliable real-time claim communication.`,
     technologies: ["React.js", "Node.js", "MongoDB", "Express.js", "Rest APIs", "Server-Socket"],
   },
   {
@@ -30,7 +30,8 @@ export const EXPERIENCES = [
     role: "Frontend Developer Intern",
     company: "LoveInProperty Pvt. Ltd.",
     description: `• Built scalable and responsive web interfaces using React.js and Tailwind CSS, optimizing performance, consistency, and usability across multiple devices and browsers through a modular and maintainable frontend architecture.
-• Optimized image assets and implemented efficient loading techniques, reducing page load time by 30% and significantly improving performance and user experience across devices.`,
+
+    • Optimized image assets and implemented efficient loading techniques, reducing page load time by 30% and significantly improving performance and user experience across devices.`,
     technologies: ["React.js", "Tailwind CSS", "JavaScript ES6+", "Responsive Design", "Git", "Performance"],
   },
   {
@@ -64,6 +65,47 @@ export const SKILLS = [
 // FEATURED PROJECTS - Portfolio Highlights
 // ============================================
 export const PROJECTS = [
+  {
+    title: "DeepScout – Autonomous Multi-Agent Research System",
+    description: `• Built an automated AI research pipeline using LangChain and Google gemini-2.5-flash to automate information retrieval, analysis, and comprehensive research report generation.
+• Integrated Tavily API and BeautifulSoup to search, identify, and scrape relevant web pages, providing contextual information for accurate report generation.
+• Developed an LLM-based evaluation pipeline that reviewed generated reports, assigned quality scores, highlighted strengths, and suggested improvements.`,
+    technologies: [
+      "React.js",
+      "FastAPI",
+      "LangChain",
+      "Gemini API",
+      "Tavily API",
+      "BeautifulSoup"
+    ],
+    liveLink: "https://multiagent-frontend-seven.vercel.app",
+    highlights: [
+      "Autonomous AI Research Pipeline",
+      "LangChain Agentic Workflow",
+      "Smart BeautifulSoup Web Scraping",
+      "LLM Evaluation & Quality Scoring"
+    ],
+  },
+  {
+    title: "PriceTrace AI – Price Tracking and Prediction Platform",
+    description: `• Built a full-stack price monitoring platform with a RESTful microservices backend, scraping live product data from Amazon and Flipkart, persisting time-series records in MongoDB, and serving historical trend visualizations with configurable target-price alerts.
+• Engineered an ensemble forecasting model integrating Facebook Prophet, Ridge Regression, and Holt-Winters Exponential Smoothing to improve price prediction accuracy.`,
+    technologies: [
+      "React.js",
+      "FastAPI",
+      "Scikit-learn",
+      "Playwright",
+      "MongoDB",
+      "Facebook Prophet"
+    ],
+    liveLink: "https://pricetrace-frontend.vercel.app/login",
+    highlights: [
+      "Real-Time E-Commerce Scraping",
+      "Ensemble Machine Learning Forecasting",
+      "Time-Series Trend Visualizations",
+      "Configurable Target Price Alerts"
+    ],
+  },
   {
     title: "AlgoForge AI – AI-Powered DSA Revision & Optimization Platform",
     image: AlgoForge,
@@ -131,30 +173,31 @@ export const PROJECTS = [
 // ACHIEVEMENTS & CERTIFICATIONS
 // ============================================
 export const ACHIEVEMENTS = [
-  {
-    description: `AIR 343 in GeeksforGeeks Weekly Coding Contest - Demonstrated elite problem-solving skills and algorithmic thinking among thousands of participants.`,
-    icon: "trophy",
-    category: "Competitive Programming",
-  },
+
   {
     description: `Qualified at college level for Smart India Hackathon 2024 - Recognized for innovative project submission and technical problem-solving capabilities.`,
     icon: "award",
     category: "Hackathon",
   },
   {
-    description: `Web Development Certification from Udemy - Comprehensive full-stack training covering modern web technologies and industry best practices.`,
+    description: `AIR 343 in GeeksforGeeks Weekly Coding Contest - Demonstrated elite problem-solving skills and algorithmic thinking among thousands of participants.`,
+    icon: "trophy",
+    category: "Competitive Programming",
+  },
+  {
+    description: `  Earned a Data Structures and Algorithms (DSA) certification from Apna College, gaining strong proficiency in problem-solving.`,
     icon: "certificate",
     category: "Certification",
   },
   {
-    description: `350+ Data Structures and Algorithms problems solved across LeetCode and GeeksforGeeks - Strong foundation in computational problem-solving.`,
-    icon: "trophy",
-    category: "Technical Excellence",
+    description: `Completed industry-led full-stack MERN development curriculum (Hitesh Choudhary) and immediately applied those competencies in a 6-month production internship, delivering shipped features across a live products.`,
+    icon: "certificate",
+    category: "Certification",
   },
   {
-    description: `Improved customer retention by 10% through analytics feature at Dutta Integrated Services - Demonstrated business impact through technical solutions.`,
-    icon: "chart",
-    category: "Business Impact",
+    description: `Solved 400+ DSA problems on LeetCode and GeeksforGeeks with a strong focus on time and space complexity optimization.`,
+    icon: "trophy",
+    category: "Technical Excellence",
   },
 ];
 

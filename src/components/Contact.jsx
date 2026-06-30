@@ -29,7 +29,7 @@ export const Contact = () => (
     >
       <p className="text-xs tracking-[0.3em] text-[#A1A1AA] uppercase mb-3">Let's Connect</p>
       <h2 className="text-3xl sm:text-5xl font-bold text-[#F5F5F5]">
-        Get in <span className="text-[#A1A1AA] font-light">Touch</span>
+        Contact <span className="text-[#A1A1AA] font-light">Me</span>
       </h2>
     </motion.div>
 

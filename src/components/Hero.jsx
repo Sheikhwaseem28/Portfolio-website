@@ -30,7 +30,7 @@ const Hero = () => {
   };
 
   return (
-    <div id="home" className="min-h-screen flex items-center section-divider">
+    <div id="home" className="min-h-[80vh] flex items-center section-divider">
       <div className="w-full flex flex-col lg:flex-row items-center gap-6 pt-24 pb-12 md:py-24">
         {/* ── Left Content ─────────────────── */}
         <div className="flex-1 flex flex-col items-center lg:items-start text-center lg:text-left">

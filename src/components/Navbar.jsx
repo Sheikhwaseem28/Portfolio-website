@@ -6,11 +6,14 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const navItems = [
   { id: "home",         label: "Home" },
-  { id: "about",        label: "About" },
+  { id: "about",        label: "About Me" },
+  { id: "skills",       label: "Skills" },
   { id: "projects",     label: "Projects" },
   { id: "experience",   label: "Experience" },
   { id: "achievements", label: "Achievements" },
-  { id: "contact",      label: "Contact" },
+  { id: "education",    label: "Education" },
+  { id: "contact",      label: "Contact Me" },
+  { id: "message",      label: "Message" },
 ];
 
 const Navbar = () => {

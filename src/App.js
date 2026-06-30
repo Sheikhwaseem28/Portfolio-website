@@ -3,10 +3,12 @@ import { Suspense } from "react";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import About from "./components/About";
-import { Experience } from "./components/Experience";
+import Skills from "./components/Skills";
 import Projects from "./components/Projects";
-import { Contact } from "./components/Contact";
+import { Experience } from "./components/Experience";
 import { Achievements } from "./components/Achievements";
+import Education from "./components/Education";
+import { Contact } from "./components/Contact";
 import ScrollProgress from "./components/ScrollProgress";
 import Footer from "./components/Footer";
 import BackToTop from "./components/BackToTop";
@@ -51,12 +53,14 @@ function App() {
       <div className="relative z-10 container mx-auto px-6 lg:px-12">
         <Hero />
         <About />
+        <Skills />
         <Projects />
         <Experience />
         <Achievements />
+        <Education />
         <Contact />
         
-        <div className="my-12 md:my-20">
+        <div id="message" className="section-divider py-12 md:py-24">
           <h2 className="text-3xl font-light text-center mb-2 text-[#F5F5F5]">
             Send Me a <span className="text-[#A1A1AA]">Message</span>
           </h2>

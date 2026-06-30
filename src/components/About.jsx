@@ -15,7 +15,7 @@ const codeLines = [
 ];
 
 const About = () => (
-  <div id="about" className="section-divider py-12 md:py-24">
+  <div id="about" className="section-divider pt-10 pb-12 md:pt-14 md:pb-24">
     {/* Section heading */}
     <motion.div
       initial={{ opacity: 0, y: -30 }}
