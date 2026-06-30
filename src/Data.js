@@ -5,12 +5,12 @@ import AlgoForge from "./assets/projects/AlgoForge.png";
 // ============================================
 // HERO SECTION - First Impression
 // ============================================
-export const HERO_CONTENT = `Software Developer specializing in scalable, high-performance web applications with proven impact on business metrics. Successfully enhanced customer retention by 10% through data-driven analytics features at Dutta Integrated Services. Expert in React.js, Node.js, and modern web technologies with a track record of delivering production-ready solutions. Combines technical expertise with business acumen to create user-centric applications that drive measurable growth and engagement.`;
+export const HERO_CONTENT = `Impactful and skilled Software Developer dedicated to building high-performance web applications and AI-driven solutions. With professional experience driving a 20% boost in customer retention at Dutta Integrated Services and a 30% reduction in page load times at LoveInProperty, I combine engineering rigor with business impact. Expert in the MERN stack, Next.js, and FastAPI, I specialize in engineering autonomous multi-agent systems, predictive machine learning platforms, and scalable APIs that solve real-world problems.`;
 
 // ============================================
 // ABOUT SECTION - Technical Expertise
 // ============================================
-export const ABOUT_TEXT = `Software Developer with competitive programming excellence (AIR 343 in GeeksforGeeks Weekly Contest) and 350+ DSA problems solved. Strong foundation in C++ for algorithmic optimization and system design. Professional experience spans customer analytics systems, social platforms, and enterprise tools. Proven ability to reduce page load times by 30% through performance optimization. Combines technical rigor with practical business impact, delivering solutions that balance efficiency, scalability, and user experience.`;
+export const ABOUT_TEXT = `I am an impactful and skilled Software Developer with a track record of building sophisticated full-stack platforms and AI integrations. My technical foundation is anchored in competitive programming (AIR 343 in GeeksforGeeks Weekly Contest and 400+ DSA problems solved in C++). From architecting intelligent systems like AlgoForge (an AI-powered DSA optimization tool) and DeepScout (an autonomous multi-agent research workflow) to developing high-performance RESTful microservices, I design software with scalability and user experience in mind. Having delivered high-impact features during production internships—such as automated SMTP notification systems and analytics dashboards—I excel at translating complex requirements into clean, optimized code.`;
 
 // ============================================
 // PROFESSIONAL EXPERIENCE
@@ -222,7 +222,7 @@ export const CONTACT = {
 export const STATS = {
   experience: "Fresher",
   projects: "15+",
-  problemsSolved: "350+",
+  problemsSolved: "400+",
   technologies: "10+",
   certifications: 4,
 };

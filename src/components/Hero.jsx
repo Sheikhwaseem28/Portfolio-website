@@ -103,7 +103,7 @@ const Hero = () => {
             className="flex items-center gap-8 mt-12"
           >
             {[
-              { value: "350+", label: "Problems Solved" },
+              { value: "400+", label: "Problems Solved" },
               { value: "15+", label: "Projects Built" },
               { value: "AIR 343", label: "GFG Ranking" },
             ].map((stat, i) => (
