@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { CONTACT } from "../Data.js";
-import { FaGithub, FaLinkedin, FaHeart } from "react-icons/fa";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { SiLeetcode } from "react-icons/si";
 
 const Footer = () => (
